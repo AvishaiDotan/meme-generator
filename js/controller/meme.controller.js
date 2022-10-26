@@ -106,6 +106,11 @@ function onSetLineColor(color) {
     renderMeme()
 }
 
+function onSetFontSize(diff) {
+    setFontSize(diff)
+    renderMeme()
+}
+
 
 
 function _addListeners() {

@@ -7,16 +7,13 @@
 
 :root {
     /* Color Pallet */
-    --clr-2: #1e1e1e;
-    --clr-1: #292929;
-    --clr1: #4f4e4e;
-    --clr2: #a6a6a6;
-    --clr3: #f8f8f8;
-
-    --clr7-secondary: #F20505;
-    --clr8-primary-light: #C0A7D9;
-    --clr-primary-medium: #1374F2;
-    --clr-primary-dark: #1C2B59;
+    --clr-2: #000000;
+    --clr-1: #595959;
+    --clr0: #8a8a8a;
+    --clr1: #e3e3e3;
+    --clr2: #ffffff;
+    --clr-primary: #ff7f00;
+    --clr-secondary: #4b85f0;
 
     /* BP */
     --l: 980px;
@@ -36,12 +33,12 @@
 /* BASICS  */
 html {
     color: var(--clr2);
-    font-family: lato-regular, sans-serif;
+    font-family: Montserrat-Regular, sans-serif;
 }
 
 body {
     margin: 0;
-    background-color: #c2c2c2;
+    background-color: var(--clr0);
     overflow-x: hidden;
 }
 
@@ -72,9 +69,9 @@ h1, h2, h3, h4, h5, h6, p {
 
 .header-layout {
     display: flex;
-    justify-content: end;
     align-items: center;
-    margin-block-end: 100px;
+    justify-content: center;
+    height: 100%;
 }
 
 .canvas-editor-layout {
@@ -119,9 +116,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* List-Helper */ 
 .clean-list {
-    margin: 0;
     padding: 0;
     list-style-type: none;
+    margin-block: 0;
+    margin-inline: 0;
+    padding-inline: 0;
 }
 
 /* Btn-helper */
@@ -136,9 +135,9 @@ h1, h2, h3, h4, h5, h6, p {
 /* Components */
 /* Header */
 .main-header {
-    background-color: var(--clr-2);
-    color: var(--clr6);
+    background-color: var(--clr-primary);
     height: 130px;
+    margin-block-end: 100px;
 }
 
 .main-header .header-logo {
@@ -146,6 +145,35 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 4em;
     width: 100%;
 }
+
+.main-header nav ul {
+    display: flex;
+}
+
+.main-header nav ul > li a {
+    display: inline-block;
+
+    font-family: Montserrat-Regular;
+    font-size: 2.1875rem;
+    padding-inline: 0.342em;
+    border-inline-start: 0.05em solid var(--clr0);
+    padding-block: 45px;
+}
+
+.main-header nav ul > li:last-child a {
+    border-inline-end: 0.05em solid var(--clr0);
+}
+
+.main-header nav ul > li a:hover {
+    color: var(--clr-2);
+    border-inline: 0.05em solid var(--clr-2);
+    box-shadow: inset 0px -4px 0px black;
+    cursor: pointer;
+}
+
+
+
+
 
 /* Canvas Editor Container */
 .canvas-editor-container {

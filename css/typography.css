@@ -1,5 +1,4 @@
 /* Display Fonts */
-
 @font-face {
     font-family: Fasthand-Regular;
     src: url(/fonts/Fasthand/Fasthand-Regular.ttf);
@@ -26,9 +25,8 @@
 }
 
 
-
-
+/* Content Fonts */
 @font-face {
-    font-family: @xxx;
-    src: url(./../fonts/@xxx);
+    font-family: Montserrat-Black;
+    src: url(/fonts/Montserrat/static/Montserrat-Black.ttf);
 }

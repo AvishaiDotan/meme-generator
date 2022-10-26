@@ -40,6 +40,14 @@ function setLineColor(color) {
     saveToStorage(MEME_KEY, gMeme)
 }
 
+function setFontSize(diff) {
+
+    const updatedSize = gMeme.lines[0].size + diff
+    if (updatedSize < 12 || updatedSize > 50) return
+
+    gMeme.lines[0].size = updatedSize
+}
+
 
 // Private Fucntions
 function _saveMemeToStorage() {

@@ -12,15 +12,17 @@
 
 <body class="main-layout" onload="onInit()">
 
-    <header class="main-header header-layout main-layout full">
-        <h1  onclick="onSwitchSection()" class="header-logo clean-text">Mister Canvas</h1>
-        <nav>
-            <ul>
-                <li>Gallery</li>
-                <li>Editor</li>
-                <li>About</li>
-            </ul>
-        </nav>
+    <header class="main-header main-layout full">
+        <div class="header-layout">
+            <h1  onclick="onSwitchSection()" class="header-logo clean-text">Mister Canvas</h1>
+            <nav>
+                <ul class="clean-list">
+                    <li><a href="">Gallery</a></li>
+                    <li><a href="">Editor</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="main-container">
@@ -45,6 +47,8 @@
                     <label>
                         <input oninput="onSetLineColor(this.value)" type="color">
                     </label>
+                    <button onclick="onSetFontSize(1)" ><img src="/icons/increase font - icon.png"></button>
+                    <button onclick="onSetFontSize(-1)" ><img src="icons/decrease font - icon.png"></button>
                 </div>
             </div>
 
