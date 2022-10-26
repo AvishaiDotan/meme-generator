@@ -4,12 +4,37 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 let gElCanvas
 let gCtx
-let gCurrPosition
+
+
+
 
 function initCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    _addListeners()
+    renderMeme()
+    // _addListeners()
+}
+
+function renderMeme() {
+    drawImg(1)
+}
+
+function drawImg(imgIdx) {
+    const img = new Image()
+    img.src = `/img/meme-imgs (square)/${imgIdx}.jpg`
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+        drawLine('trump')
+    
+
+    }
+}
+
+function drawLine(txt) {
+    gCtx.strokeStyle = "blue";
+    gCtx.fillStyle = 'blue'
+    gCtx.font = '48px serif';
+    gCtx.strokeText(txt, 250, 250);
 }
 
 
