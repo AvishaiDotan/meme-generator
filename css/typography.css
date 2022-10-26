@@ -1,0 +1,34 @@
+/* Display Fonts */
+
+@font-face {
+    font-family: Fasthand-Regular;
+    src: url(/fonts/Fasthand/Fasthand-Regular.ttf);
+}
+@font-face {
+    font-family: DancingScript-Bold;
+    src: url(/fonts/Dancing_Script/static/DancingScript-Bold.ttf);
+}
+@font-face {
+    font-family: Monoton-Regular;
+    src: url(/fonts/Monoton/Monoton-Regular.ttf);
+}
+@font-face {
+    font-family: Nabla-Regular;
+    src: url(/fonts/Nabla/static/Nabla-Regular.ttf);
+}
+@font-face {
+    font-family: PressStart2P-Regular;
+    src: url(/fonts/Press_Start_2P/PressStart2P-Regular.ttf);
+}
+@font-face {
+    font-family: Slackey-Regular;
+    src: url(/fonts/Slackey/Slackey-Regular.ttf);
+}
+
+
+
+
+@font-face {
+    font-family: @xxx;
+    src: url(./../fonts/@xxx);
+}

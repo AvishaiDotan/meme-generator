@@ -1,0 +1,161 @@
+
+/* Typography */
+@import url(/css/typography.css);
+
+
+
+
+:root {
+    /* Color Pallet */
+    --clr-2: #1e1e1e;
+    --clr-1: #292929;
+    --clr1: #4f4e4e;
+    --clr2: #a6a6a6;
+    --clr3: #f8f8f8;
+
+    --clr7-secondary: #F20505;
+    --clr8-primary-light: #C0A7D9;
+    --clr-primary-medium: #1374F2;
+    --clr-primary-dark: #1C2B59;
+
+    /* BP */
+    --l: 980px;
+    --m: 780px;
+    --s: 580px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+/* BASICS  */
+html {
+    color: var(--clr2);
+    font-family: lato-regular, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #c2c2c2;
+}
+
+a {
+    color: var(--clr6);
+    text-decoration: auto;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    font-weight: normal;
+    margin-inline: 0;
+    margin-block: 0;
+}
+
+
+
+
+
+
+
+/* LAYOUT */
+.main-layout > *:not(.full) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 980px;
+}
+
+.header-layout {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-block-end: 100px;
+}
+
+.canvas-editor-layout {
+    background-color: gray;
+    height: 400px;
+    margin-block-end: 100px;
+}
+
+
+
+
+
+/* Helpers */
+/* Flex-Helper */
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.flex-column {
+    flex-direction: column;
+}
+
+.flex.justify-end {
+    justify-content: flex-end;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
+/* List-Helper */ 
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* Btn-helper */
+.clear-btn {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+
+
+/* Components */
+/* Header */
+.main-header {
+    background-color: var(--clr-2);
+    color: var(--clr6);
+    height: 130px;
+}
+
+.main-header .header-logo {
+    font-family: Fasthand-Regular;
+    font-size: 4em;
+    width: 100%;
+}
+
+.footer-layout {
+}
+
+
+
+
+
+
+
+
+
+
+

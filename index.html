@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css\main.css">
+
+</head>
+
+<body class="main-layout" onload="onInit()">
+
+    <header class="main-header header-layout main-layout full">
+        <h1 class="header-logo clean-text">Mister Canvas</h1>
+        <nav>
+            <ul>
+                <li>Gallery</li>
+                <li>Editor</li>
+                <li>About</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="canvas-editor-layout">
+        <h2 class="canvas-actions-header clean-text">Editor</h2>
+
+        <div class="canvas-editor-container">
+
+            <div class="canvas-container">
+                <canvas></canvas>
+            </div>
+
+            <div class="actions-container">  
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="main-footer footer-layout full">
+        <h2 class="footer-header">Contact Me</h2>
+    </footer>
+
+
+
+
+    <script src="https://kit.fontawesome.com/73ec7ec8db.js" crossorigin="anonymous"></script>
+    <script src="js\services\utils.service.js"></script>
+    <script src="js\services\storage.service.js"></script>
+    <script src="js\services\meme.service.js"></script>
+    <script src="js\services\gallery.service.js"></script>
+    <script src="js\services\upload.service.js"></script>
+    <script src="js\controller\meme.controller.js"></script>
+    <script src="js\controller\gallery.controller.js"></script>
+    <script src="js\controller\main.controller.js"></script>
+</body>
+
+</html>
