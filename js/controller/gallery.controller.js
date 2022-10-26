@@ -16,9 +16,9 @@ function renderGallery() {
 function renderSavedMemes() {
     const memes = getSavedMemes()
     
-    let strHTMLs = memes.map(({memeData, memeUri}) => `
+    let strHTMLs = memes.map(({memeData, memeUri}, idx) => `
 
-            <article data-meme="${JSON.stringify(memeData)}">
+            <article onclick="logThisIdx('${idx}')" data-meme="${JSON.stringify(memeData)}">
                 <img src="${memeUri}">
             </article>
     `)
@@ -30,6 +30,16 @@ function renderSavedMemes() {
 function onSetFilterBy(filterValue) {
     setFilterBy(filterValue)
     renderGallery()
+}
+
+// TODO!
+function logThisIdx(idx) {
+    const memes = getSavedMemes()
+    const {memeData} = memes[idx]
+    gMeme = memeData
+    renderMeme()
+    onShowEditor()
+
 }
 
 function onShowEditor() {

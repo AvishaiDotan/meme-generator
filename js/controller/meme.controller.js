@@ -122,7 +122,7 @@ function onDown(ev) {
     gCurrLineIdx = itemIdx
     gStartPos = pos
 
-    document.body.style.cursor = 'grabbing'
+    document.querySelector('canvas').style.cursor = 'grabbing'
     renderMeme()
 }
 
@@ -142,18 +142,11 @@ function onMove(ev) {
     renderMeme()
 }
 
-function onUp(ev) {
+function onUp() {
     setDraggedItem(gCurrLineIdx, false)
-    document.body.style.cursor = 'grab'
+    document.querySelector('canvas').style.cursor = 'grab'
 }
 
-function onResize() {
-
-}
-
-function onClearCanvas() {
-
-}
 
 
 // General onclick functions
@@ -180,6 +173,11 @@ function onAddEmoji(elEmoji) {
 
     
     addEmoji(emojiStr)
+    renderMeme()
+}
+
+function onDeleteLine() {
+    deleteLine()
     renderMeme()
 }
 
@@ -217,11 +215,15 @@ function onSetFontSize(diff) {
     renderMeme()
 }
 
+function onSetFont(font) {
+    setFont(font)
+    renderMeme()
+}
+
 function updateInputText(txt) {
     const elInput = document.querySelector('[data-action="user-txt-input"]')
     elInput.value = txt
 }
-
 
 
 function _addListeners() {

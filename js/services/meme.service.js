@@ -16,7 +16,7 @@ const MEME_TEXTS = [
     'Mama and Cola Having Fun',
 ]
 
-const gSavedMemes = []
+const gSavedMemes = loadFromStorage(MEME_KEY) || []
 
 let gMeme
 
@@ -105,6 +105,13 @@ function saveMeme() {
     _saveMemeToStorage()
 }
 
+function deleteLine() {
+    const lineIdx = getSelectedLineIdx()
+    if (lineIdx < 0) return 
+
+    gMeme.lines.splice(lineIdx, 1)
+}
+
 // Getters
 function getMeme() {
     return gMeme
@@ -159,6 +166,13 @@ function setFontSize(diff) {
     line.fontSize = updatedSize
 }
 
+function setFont(font) {
+    const line = getSelectedLine()
+    if (!line) return
+
+    line.font = font
+}
+
 function setLinePos(lineIdx, x, y) {
     const line = getLineByIdx(lineIdx)
     line.pos = {x, y}
@@ -178,6 +192,7 @@ function setDraggedItem(itemIdx, state) {
     const line = getLineByIdx(itemIdx)
     line.isDragged = state
 }
+
 
 
 // Private Fucntions
