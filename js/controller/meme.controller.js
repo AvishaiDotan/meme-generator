@@ -40,8 +40,10 @@ function drawLine(lines) {
 
     lines.forEach(({txt, size, align, color}) => {
         gCtx.strokeStyle = "black";
+        gCtx.lineWidth = 3;
         gCtx.fillStyle = color
-        gCtx.font = `${size}px impact`;
+        gCtx.font = `${size * 2}px Impact`;
+        gCtx.fillText(txt, 250, 250);
         gCtx.strokeText(txt, 250, 250);
     })
 
@@ -86,18 +88,6 @@ function onClearCanvas() {
 }
 
 
-// Draw Functions
-
-function drawText(nextPos) {
-
-    gCtx.beginPath();
-
-    gCtx.fillText(getRandomLetter(), nextPos.x, nextPos.y);
-    gCtx.stroke();
-    gCtx.fill();
-
-    gCurrPosition = nextPos
-}
 
 
 // Getters
@@ -108,6 +98,11 @@ function getCanvas() {
 // Setters
 function onSetLineTxt(txt) {
     setLineTxt(txt)
+    renderMeme()
+}
+
+function onSetLineColor(color) {
+    setLineColor(color)
     renderMeme()
 }
 

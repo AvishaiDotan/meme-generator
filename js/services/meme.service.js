@@ -25,12 +25,18 @@ function getMeme() {
 
 
 //Setters 
-function setLineTxt(txt) {
-    gMeme.lines[0].txt = txt
-}
-
 function setImg(imgIdx) {
     gMeme.selectedImgId = imgIdx
+    saveToStorage(MEME_KEY, gMeme)
+}
+
+function setLineTxt(txt) {
+    gMeme.lines[0].txt = txt
+    saveToStorage(MEME_KEY, gMeme)
+}
+
+function setLineColor(color) {
+    gMeme.lines[0].color = color
     saveToStorage(MEME_KEY, gMeme)
 }
 
