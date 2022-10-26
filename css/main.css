@@ -177,29 +177,42 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Canvas Editor Container */
 .canvas-editor-container {
-    position: relative;
-    width: 980px;
 
     transition: 0.6s;
     background-color: grey;
-    transform: translateX(-100vw);
+    display: none;
 }
 .canvas-editor-container.swipe {
-    transform: translateX(0);
+    display: block;
 }
 
 /* Gallery */
-.gallery {
-    position: fixed;
-    width: 980px;
+.gallery-container {
 
     background-color: grey;
     transition: 0.6s;
 
     height: 100px;
 }
-.gallery.swipe {
-    transform: translateX(100vw);
+
+.gallery-container .gallery {
+    display: grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 60px;
+}
+
+.gallery-container .gallery img {
+    width: 100%;
+}
+
+.gallery-container .search-bar {
+        height: 130px;
+        background-color: var(--clr2);
+}
+.gallery-container.swipe {
+    display: none;
 }
 
 .footer-layout {

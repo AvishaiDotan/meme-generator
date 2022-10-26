@@ -15,7 +15,7 @@ function renderGallery() {
 
 function onSwitchSection() {
     document.querySelector('.canvas-editor-container').classList.toggle('swipe')
-    document.querySelector('.gallery').classList.toggle('swipe')
+    document.querySelector('.gallery-container').classList.toggle('swipe')
 }
 
 function onImgSelect(imgIdx) {
