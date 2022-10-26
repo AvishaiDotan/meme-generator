@@ -16,9 +16,10 @@
     --clr-secondary: #4b85f0;
 
     /* BP */
-    --l: 1400px;
-    --m: 780px;
-    --s: 580px;
+    --xl: 1400px;
+    --l: 1100px;
+    --m: 900px;
+    --s: 700px;
 }
 
 * {
@@ -38,7 +39,7 @@ html {
 
 body {
     margin: 0;
-    background-color: var(--clr0);
+    background-color: var(--clr1);
     overflow-x: hidden;
 }
 
@@ -64,7 +65,7 @@ h1, h2, h3, h4, h5, h6, p {
 .main-layout > *:not(.full) {
     margin-left: auto;
     margin-right: auto;
-    max-width: var(--l);
+    max-width: var(--xl);
 }
 
 .header-layout {
@@ -133,11 +134,17 @@ h1, h2, h3, h4, h5, h6, p {
 
 
 /* Components */
+
+/* Main Container */
+.main-container {
+    margin-block-end: 100px;
+}
+
 /* Header */
 .main-header {
-    background-color: var(--clr-primary);
-    height: 130px;
+    background-color: var(--clr-1);
     margin-block-end: 100px;
+    box-shadow: 0px 6px 0px var(--clr-secondary);
 }
 
 .main-header .header-logo {
@@ -146,8 +153,17 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
 }
 
+.main-header .header-logo .logo-dot {
+    color: var(--clr-primary);
+    font-size: 4rem;
+}
+
 .main-header nav ul {
     display: flex;
+}
+
+.main-header nav ul > li a {
+    transition: 0.1s;
 }
 
 .main-header nav ul > li a {
@@ -157,7 +173,7 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 2.1875rem;
     padding-inline: 0.342em;
     border-inline-start: 0.05em solid var(--clr0);
-    padding-block: 45px;
+    padding-block: 1.285em;
 }
 
 .main-header nav ul > li:last-child a {
@@ -165,15 +181,11 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .main-header nav ul > li a:hover {
-    color: var(--clr-2);
+    color: var(--clr-primary);
     border-inline: 0.05em solid var(--clr-2);
-    box-shadow: inset 0px -4px 0px black;
+    box-shadow: inset 0px -4px 0px var(--clr-secondary);
     cursor: pointer;
 }
-
-
-
-
 
 /* Canvas Editor Container */
 .canvas-editor-container {
@@ -187,16 +199,14 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .canvas-editor-container .editor-container img {
-    width: 50px;
+    width: 3.125rem;
 }
 
 /* Gallery */
 .gallery-container {
-
-    background-color: grey;
+    background-color: var(--clr1);
     transition: 0.6s;
-
-    height: 100px;
+    border: 2px solid var(--clr-1);
 }
 
 .gallery-container .gallery {
@@ -209,17 +219,107 @@ h1, h2, h3, h4, h5, h6, p {
 
 .gallery-container .gallery img {
     width: 100%;
+    transition: 0.3s;
+}
+
+.gallery-container .gallery img:hover {
+    filter: grayscale(50%);
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 0px var(--clr-2);
 }
 
 .gallery-container .search-bar {
         height: 130px;
         background-color: var(--clr2);
 }
+
 .gallery-container.swipe {
     display: none;
 }
 
+/* Footer */
 .footer-layout {
+    padding-block-start: 80px;
+    background-color: var(--clr2);
+    border-block-start: 5px solid var(--clr-1);
+}
+
+.footer-layout .about-me-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footer-layout .about-me {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-layout .personal-img  {
+    border-radius: 50%;
+    width: 300px;
+    margin-inline-end: 2rem;
+    border: 5px solid var(--clr-primary);
+}
+
+.footer-layout .personal-text  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: var(--clr-2);
+}
+
+.footer-layout .social-links {
+    margin-block-start: 2rem;
+    display: flex;
+}
+
+.footer-layout .social-links li {
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: var(--clr-secondary);
+    margin-inline-end: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1600px) {
+    .main-layout > *:not(.full) {
+        max-width: var(--l);
+    }
+    .gallery-container .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .main-layout > *:not(.full) {
+        max-width: var(--m);
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .main-layout > *:not(.full) {
+        max-width: var(--s);
+    }
+
+    .main-header .header-logo {
+        font-size: 3em;
+    }
+
+    .gallery-container {
+        border: none;
+    }
+
 }
 
 

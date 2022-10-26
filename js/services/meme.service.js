@@ -2,29 +2,14 @@
 
 const MEME_KEY = 'memeDB'
 
-let gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'Edit Text',
-            size: 20,
-            align: 'center',
-            color: 'white'
-        },
-        {
-            txt: 'Edit Text',
-            size: 20,
-            align: 'center',
-            color: 'white'
-        }
-    ]
-}
-
+let gMeme
+_createLines()
 
 
 function addLine(txt) {
     if (!gMeme.selectedLineIdx === -1) return
+    if (gMeme.lines.length >= 4) return
+
 
     gMeme.lines.push(
         {
@@ -89,3 +74,30 @@ function _saveMemeToStorage() {
     saveToStorage(MEME_KEY, gMeme)
 }
 
+function _createLines() {
+    let meme = loadFromStorage(MEME_KEY)
+
+    if (!meme || !meme.lines.length) {
+        meme = {
+            selectedImgId: 5,
+            selectedLineIdx: 0,
+            lines: [
+                {
+                    txt: 'Edit Text',
+                    size: 20,
+                    align: 'center',
+                    color: 'white'
+                },
+                {
+                    txt: 'Edit Text',
+                    size: 20,
+                    align: 'center',
+                    color: 'white'
+                }
+            ]
+        }
+    }
+
+    gMeme = meme
+    _saveMemeToStorage()
+}
