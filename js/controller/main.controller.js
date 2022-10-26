@@ -3,6 +3,7 @@
 
 function onInit() {
     initCanvas()
+    renderGallery()
 }
 
 

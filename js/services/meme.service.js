@@ -29,6 +29,11 @@ function setLineTxt(txt) {
     gMeme.lines[0].txt = txt
 }
 
+function setImg(imgIdx) {
+    gMeme.selectedImgId = imgIdx
+    saveToStorage(MEME_KEY, gMeme)
+}
+
 
 // Private Fucntions
 function _saveMemeToStorage() {

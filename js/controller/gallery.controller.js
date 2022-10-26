@@ -1,10 +1,25 @@
 'use strict'
 
-function  renderGallery() {
+function renderGallery() {
+    const imgs = getImgs()
 
+    let strHTMLs = imgs.map(({imgIdx}) => `
+
+            <article onclick="onImgSelect(${imgIdx})" class="meme-preview"">
+                <img src="/img/meme-imgs (square)/${imgIdx}.jpg" alt="">
+            </article>
+    `)
+
+    document.querySelector('.gallery').innerHTML = strHTMLs.join('')
 }
 
-function swipe() {
+function onSwitchSection() {
     document.querySelector('.canvas-editor-container').classList.toggle('swipe')
     document.querySelector('.gallery').classList.toggle('swipe')
+}
+
+function onImgSelect(imgIdx) {
+    setImg(imgIdx)
+    renderMeme()
+    onSwitchSection()
 }
