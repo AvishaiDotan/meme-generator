@@ -39,11 +39,12 @@ function drawLine(lines) {
     lines.forEach(({txt, size, align, color}) => {
         gCtx.strokeStyle = "black";
         gCtx.fillStyle = color
-        gCtx.font = `${size}px serif`;
+        gCtx.font = `${size}px impact`;
         gCtx.strokeText(txt, 250, 250);
     })
 
 }
+
 
 
 
@@ -103,9 +104,12 @@ function getCanvas() {
 }
 
 // Setters
-function _setCanvasBackground() {
-
+function onSetLineTxt(txt) {
+    setLineTxt(txt)
+    renderMeme()
 }
+
+
 
 function _addListeners() {
     addMouseListeners()

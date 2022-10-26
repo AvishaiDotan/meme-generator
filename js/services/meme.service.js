@@ -1,5 +1,7 @@
 'use strict'
 
+const MEME_KEY = 'memeDB'
+
 let gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
@@ -23,3 +25,12 @@ function getMeme() {
 
 
 //Setters 
+function setLineTxt(txt) {
+    gMeme.lines[0].txt = txt
+}
+
+
+// Private Fucntions
+function _saveMemeToStorage() {
+    saveToStorage(MEME_KEY, gMeme)
+}

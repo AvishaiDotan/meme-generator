@@ -6,6 +6,8 @@ function onInit() {
 }
 
 
+
+
 function onDownloadImg(elLink) {
     const canvas = getCanvas()
     const imgContent = gElCanvas.toDataURL('image/jpeg')// image/jpeg the default format
