@@ -16,25 +16,33 @@ function initCanvas() {
 }
 
 function renderMeme() {
-    drawImg(1)
+    const {selectedImgId, lines} = getMeme()
+
+    // Render Background Image
+    const img = new Image()
+    img.src = `/img/meme-imgs (square)/${selectedImgId}.jpg`
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+        
+        // Render Lines:
+        drawLine(lines)
+    }
+
 }
 
 function drawImg(imgIdx) {
-    const img = new Image()
-    img.src = `/img/meme-imgs (square)/${imgIdx}.jpg`
-    img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawLine('trump')
-    
 
-    }
 }
 
-function drawLine(txt) {
-    gCtx.strokeStyle = "blue";
-    gCtx.fillStyle = 'blue'
-    gCtx.font = '48px serif';
-    gCtx.strokeText(txt, 250, 250);
+function drawLine(lines) {
+
+    lines.forEach(({txt, size, align, color}) => {
+        gCtx.strokeStyle = "black";
+        gCtx.fillStyle = color
+        gCtx.font = `${size}px serif`;
+        gCtx.strokeText(txt, 250, 250);
+    })
+
 }
 
 
