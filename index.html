@@ -25,7 +25,7 @@
         </div>
     </header>
 
-    <main class="main-container main-layout">
+    <main class="main-container">
         
         <section class="gallery-container">
             <div class="search-bar"></div>
@@ -43,15 +43,20 @@
             <div class="editor-container"> 
                 <div class="text-input-actions">
                     <label>
-                        <input oninput="onSetLineTxt(this.value)" type="text">
+                        <input data-action="user-txt-input" oninput="onSetLineTxt(this.value)"
+                        placeholder="Enter Your Meme Line Here" type="text">
                     </label>
+                    <button onclick="onAddLine()"><img src="icons/add.png"></button>
                 </div>
                 <div class="text-style-actions">
                     <label>
                         <input oninput="onSetLineColor(this.value)" type="color">
                     </label>
-                    <button onclick="onSetFontSize(1)" ><img src="/icons/increase font - icon.png"></button>
-                    <button onclick="onSetFontSize(-1)" ><img src="icons/decrease font - icon.png"></button>
+                    <button onclick="onSetFontSize(1)"><img src="/icons/increase font - icon.png"></button>
+                    <button onclick="onSetFontSize(-1)"><img src="icons/decrease font - icon.png"></button>
+                </div>
+                <div class="select-line-actions">
+                    <button onclick="onSwitchLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
                 </div>
             </div>
 

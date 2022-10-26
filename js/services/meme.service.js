@@ -7,20 +7,55 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
+            txt: 'Edit Text',
             size: 20,
-            align: 'left',
-            color: 'red'
+            align: 'center',
+            color: 'white'
+        },
+        {
+            txt: 'Edit Text',
+            size: 20,
+            align: 'center',
+            color: 'white'
         }
     ]
 }
 
 
 
+function addLine(txt) {
+    if (!gMeme.selectedLineIdx === -1) return
+
+    gMeme.lines.push(
+        {
+            txt,
+            size: 20,
+            align: 'left',
+            color: 'red'
+        }
+    )
+
+    _saveMemeToStorage()
+}
+
+function switchLine() {
+    if (!gMeme.lines.length) return
+    if (gMeme.selectedLineIdx === (gMeme.lines.length - 1)) gMeme.selectedLineIdx = -1
+
+    gMeme.selectedLineIdx++
+}
 
 // Getters
 function getMeme() {
     return gMeme
+}
+
+function getSelectedLineIdx() {
+    return gMeme.selectedLineIdx
+}
+
+function getSelectedLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
 }
 
 
@@ -31,21 +66,21 @@ function setImg(imgIdx) {
 }
 
 function setLineTxt(txt) {
-    gMeme.lines[0].txt = txt
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
     saveToStorage(MEME_KEY, gMeme)
 }
 
 function setLineColor(color) {
-    gMeme.lines[0].color = color
+    gMeme.lines[gMeme.selectedLineIdx].color = color
     saveToStorage(MEME_KEY, gMeme)
 }
 
 function setFontSize(diff) {
 
-    const updatedSize = gMeme.lines[0].size + diff
+    const updatedSize = gMeme.lines[gMeme.selectedLineIdx].size + diff
     if (updatedSize < 12 || updatedSize > 50) return
 
-    gMeme.lines[0].size = updatedSize
+    gMeme.lines[gMeme.selectedLineIdx].size = updatedSize
 }
 
 
@@ -53,3 +88,4 @@ function setFontSize(diff) {
 function _saveMemeToStorage() {
     saveToStorage(MEME_KEY, gMeme)
 }
+

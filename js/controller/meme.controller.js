@@ -12,21 +12,23 @@ function initCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderMeme()
+    updateInputText('Edit Text')
     // _addListeners()
 }
 
 function renderMeme() {
-    const {selectedImgId, lines} = getMeme()
+    const { selectedImgId, lines } = getMeme()
 
     // Render Background Image
     const img = new Image()
     img.src = `/img/meme-imgs (square)/${selectedImgId}.jpg`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        
+
         // Render Lines:
         drawLine(lines)
     }
+
 
 }
 
@@ -38,13 +40,29 @@ function drawImg(imgIdx) {
 
 function drawLine(lines) {
 
-    lines.forEach(({txt, size, align, color}) => {
+    const validYAxisPos = [100, 400, 200, 300]
+    const selectedIdx = getSelectedLineIdx()
+
+    lines.forEach(({ txt, size, align, color }, idx) => {
+
+        gCtx.setLineDash([]);
         gCtx.strokeStyle = "black";
         gCtx.lineWidth = 3;
         gCtx.fillStyle = color
         gCtx.font = `${size * 2}px Impact`;
-        gCtx.fillText(txt, 250, 250);
-        gCtx.strokeText(txt, 250, 250);
+
+        const textWidth = gCtx.measureText(txt).width;
+        const center = (gElCanvas.width / 2) - (textWidth / 2)
+
+        gCtx.fillText(txt, center, validYAxisPos[idx]);
+        gCtx.strokeText(txt, center, validYAxisPos[idx]);
+
+        if (idx === selectedIdx) {
+            gCtx.beginPath();
+            gCtx.setLineDash([4, 2]);
+            gCtx.rect(center - size, validYAxisPos[idx] - size * 2, textWidth + size * 2, size * 2.5);
+            gCtx.stroke();
+        }
     })
 
 }
@@ -84,11 +102,17 @@ function onResize() {
 }
 
 function onClearCanvas() {
-    
+
 }
 
+// General onclick functions
+function onSwitchLine() {
+    switchLine()
+    const {txt} = getSelectedLine()
+    updateInputText(txt)
 
-
+    renderMeme()
+}
 
 // Getters
 function getCanvas() {
@@ -101,6 +125,15 @@ function onSetLineTxt(txt) {
     renderMeme()
 }
 
+function onAddLine() {
+    const txt = document.querySelector('[data-action="user-txt-input"]').value
+
+    if (!txt) return
+
+    addLine(txt)
+    renderMeme()
+}
+
 function onSetLineColor(color) {
     setLineColor(color)
     renderMeme()
@@ -109,6 +142,11 @@ function onSetLineColor(color) {
 function onSetFontSize(diff) {
     setFontSize(diff)
     renderMeme()
+}
+
+function updateInputText(txt) {
+    const elInput = document.querySelector('[data-action="user-txt-input"]')
+    elInput.value = txt
 }
 
 
@@ -126,13 +164,13 @@ function _getEvPos(ev) {
 
     // CR EXPLAIN
     if (TOUCH_EVS.includes(ev.type)) {
-      ev.preventDefault()
-      ev = ev.changedTouches[0]
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
 
-      pos = {
-        x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-        y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-      }
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        }
     }
 
     return pos
