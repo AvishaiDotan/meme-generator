@@ -119,6 +119,10 @@ function onSwitchLine() {
     renderMeme()
 }
 
+function onSaveMeme() {
+    saveMeme()
+}
+
 // Getters
 function getCanvas() {
     return gElCanvas
@@ -202,8 +206,8 @@ function _getCenter(textWidth) {
 }
 
 function _getValidSize(size ,txt, font) {
-
-    while (gCtx.measureText(txt).width > gElCanvas.width - 5) {
+    const margin = 80
+    while (gCtx.measureText(txt).width > gElCanvas.width - margin) {
         size--
         gCtx.font = `${size * 2}px ${font}`;
     }

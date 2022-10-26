@@ -4,6 +4,7 @@
 function onInit() {
     initCanvas()
     renderGallery()
+    renderSavedMemes()
 }
 
 

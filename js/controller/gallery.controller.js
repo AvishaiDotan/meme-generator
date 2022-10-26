@@ -13,19 +13,50 @@ function renderGallery() {
     document.querySelector('.gallery').innerHTML = strHTMLs.join('')
 }
 
-function onSwitchSection() {
-    document.querySelector('.canvas-editor-container').classList.toggle('swipe')
-    document.querySelector('.gallery-container').classList.toggle('swipe')
+function renderSavedMemes() {
+    const memes = getSavedMemes()
+    
+    let strHTMLs = memes.map(({memeData, memeUri}) => `
+
+            <article data-meme="${JSON.stringify(memeData)}">
+                <img src="${memeUri}">
+            </article>
+    `)
+
+    document.querySelector('.saved-memes').innerHTML = strHTMLs.join('')
+
+}
+
+function onShowEditor() {
+    document.querySelector('.canvas-editor-container').classList.remove('hide')
+    document.querySelector('.gallery-container').classList.add('hide')
+    document.querySelector('.saved-memes').classList.add('hide')
+}
+
+function onShowGallery() {
+    document.querySelector('.canvas-editor-container').classList.add('hide')
+    document.querySelector('.gallery-container').classList.remove('hide')
+    document.querySelector('.saved-memes').classList.add('hide')
+}
+
+function onShowSavedMemes() {
+    renderSavedMemes()
+    document.querySelector('.canvas-editor-container').classList.add('hide')
+    document.querySelector('.gallery-container').classList.add('hide')
+    document.querySelector('.saved-memes').classList.remove('hide')
+
 }
 
 function onImgSelect(imgIdx) {
     setImg(imgIdx)
     renderMeme()
-    onSwitchSection()
+    onShowEditor()
 }
+
+
 
 function onGenerateRandomMeme() {
     generateRandomMeme()
     renderMeme()
-    onSwitchSection()
+    onShowEditor()
 }

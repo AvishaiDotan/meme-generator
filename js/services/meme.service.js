@@ -16,7 +16,10 @@ const MEME_TEXTS = [
     'Mama and Cola Having Fun',
 ]
 
+const gSavedMemes = []
+
 let gMeme
+
 _createLines()
 
 
@@ -31,12 +34,10 @@ function addLine(txt) {
             size: 20,
             align: 'left',
             color: 'red',
-            strokeColor: 'black', 
+            strokeColor: 'black',
             font: 'impact'
         }
     )
-
-    _saveMemeToStorage()
 }
 
 function switchLine() {
@@ -64,7 +65,7 @@ function generateRandomMeme() {
             strokeColor,
             font: 'impact'
         })
-        
+
     }
 
     gMeme = {
@@ -72,6 +73,18 @@ function generateRandomMeme() {
         selectedLineIdx: 0,
         lines,
     }
+}
+
+function saveMeme() {
+    const canvas = getCanvas()
+    const memeUri = canvas.toDataURL();
+
+    gSavedMemes.push({
+        memeData: gMeme,
+        memeUri,
+    })
+
+    _saveMemeToStorage()
 }
 
 // Getters
@@ -87,21 +100,22 @@ function getSelectedLine() {
     return gMeme.lines[gMeme.selectedLineIdx]
 }
 
+function getSavedMemes() {
+    return loadFromStorage(MEME_KEY)
+}
+
 
 //Setters 
 function setImg(imgIdx) {
     gMeme.selectedImgId = imgIdx
-    saveToStorage(MEME_KEY, gMeme)
 }
 
 function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
-    saveToStorage(MEME_KEY, gMeme)
 }
 
 function setLineColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
-    saveToStorage(MEME_KEY, gMeme)
 }
 
 function setFontSize(diff) {
@@ -115,39 +129,32 @@ function setFontSize(diff) {
 
 // Private Fucntions
 function _saveMemeToStorage() {
-    saveToStorage(MEME_KEY, gMeme)
+    saveToStorage(MEME_KEY, gSavedMemes)
 }
 
 function _createLines() {
-    let meme = loadFromStorage(MEME_KEY)
-
-    if (!meme || !meme.lines.length) {
-        meme = {
-            selectedImgId: 5,
-            selectedLineIdx: 0,
-            lines: [
-                {
-                    txt: 'Edit Text',
-                    size: 20,
-                    align: 'center',
-                    color: 'white',
-                    strokeColor: 'black',
-                    font: 'impact',
-                },
-                {
-                    txt: 'Edit Text',
-                    size: 20,
-                    align: 'center',
-                    color: 'white',
-                    strokeColor: 'black',
-                    font: 'impact',
-                }
-            ]
-        }
+    gMeme = {
+        selectedImgId: 5,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: 'Edit Text',
+                size: 20,
+                align: 'center',
+                color: 'white',
+                strokeColor: 'black',
+                font: 'impact',
+            },
+            {
+                txt: 'Edit Text',
+                size: 20,
+                align: 'center',
+                color: 'white',
+                strokeColor: 'black',
+                font: 'impact',
+            }
+        ]
     }
-
-    gMeme = meme
-    _saveMemeToStorage()
 }
 
 function getRandomMemeText() {

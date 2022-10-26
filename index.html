@@ -14,12 +14,12 @@
 
     <header class="main-header main-layout full">
         <div class="header-layout">
-            <h1  onclick="onSwitchSection()" class="header-logo clean-text">Meme Generator<span class="logo-dot">.</span></h1>
+            <h1  onclick="onShowGallery()" class="header-logo clean-text">Meme Generator<span class="logo-dot">.</span></h1>
             <nav>
                 <ul class="clean-list">
-                    <li><a href="">Gallery</a></li>
-                    <li><a href="">Editor</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a onclick="onShowSavedMemes()">Saved</a></li>
+                    <li><a>Editor</a></li>
+                    <li><a>About</a></li>
                 </ul>
             </nav>
         </div>
@@ -39,7 +39,7 @@
                 </div>
                 <button onclick="onGenerateRandomMeme()">Random Meme</button>
             </div>
-            <div class="gallery"></div>
+            <div class="gallery"></div>   
         </section>
 
         
@@ -51,14 +51,15 @@
             </div>
 
             <div class="editor-container"> 
+
                 <div class="text-input-actions">
                     <label>
                         <input data-action="user-txt-input" class="text-input" oninput="onSetLineTxt(this.value)"
                         placeholder="Enter Your Meme Line Here" type="text">
                         <button onclick="onAddLine()"><img src="icons/add.png"></button>
                     </label>
-                    
                 </div>
+
                 <div class="text-style-actions">
                     <label>
                         <input oninput="onSetLineColor(this.value)" type="color">
@@ -66,12 +67,21 @@
                     <button onclick="onSetFontSize(1)"><img src="/icons/increase font - icon.png"></button>
                     <button onclick="onSetFontSize(-1)"><img src="icons/decrease font - icon.png"></button>
                 </div>
+
                 <div class="select-line-actions">
                     <button onclick="onSwitchLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
                 </div>
-            </div>
 
+                <div class="save-share-update-actions">
+                    <button onclick="onSaveMeme()">Save</button>
+                </div>
+            </div>
         </section>
+
+        <section class="saved-memes-container">
+            <div class="saved-memes"></div>
+        </section>
+
     </main>
 
     <footer class="main-footer footer-layout full">
