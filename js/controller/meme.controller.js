@@ -43,27 +43,31 @@ function drawLine(lines) {
     const validYAxisPos = [100, 400, 200, 300]
     const selectedIdx = getSelectedLineIdx()
 
-    lines.forEach(({ txt, size, align, color, strokeColor }, idx) => {
+    lines.forEach(({ txt, size, align, color, strokeColor, font }, idx) => {
+
+        _setFont(size, font)
+        let textWidth = _getTextWidth(txt)
+
+        if (textWidth > gElCanvas.width) {
+            console.log(size);
+            size = _getValidSize(size, txt, font)
+            textWidth = _getTextWidth(txt)
+            console.log(size);
+        }
+
+        const center = _getCenter(textWidth)
+
+        if (idx === selectedIdx) {
+            _drawBorder(center, size, textWidth, validYAxisPos[idx])
+        }
 
         gCtx.setLineDash([]);
-        gCtx.strokeStyle = "black";
         gCtx.lineWidth = 3;
         gCtx.fillStyle = color
         gCtx.strokeStyle = strokeColor
-        gCtx.font = `${size * 2}px Impact`;
-
-        const textWidth = gCtx.measureText(txt).width;
-        const center = (gElCanvas.width / 2) - (textWidth / 2)
 
         gCtx.fillText(txt, center, validYAxisPos[idx]);
         gCtx.strokeText(txt, center, validYAxisPos[idx]);
-
-        if (idx === selectedIdx) {
-            gCtx.beginPath();
-            gCtx.setLineDash([4, 2]);
-            gCtx.rect(center - size, validYAxisPos[idx] - size * 2, textWidth + size * 2, size * 2.5);
-            gCtx.stroke();
-        }
     })
 
 }
@@ -175,6 +179,36 @@ function _getEvPos(ev) {
     }
 
     return pos
+}
+
+function _drawBorder(center, size, textWidth, yPos) {
+    gCtx.beginPath();
+    gCtx.strokeStyle = "black";
+    gCtx.setLineDash([4, 2]);
+    gCtx.rect(center - size, yPos - size * 2, textWidth + size * 2, size * 2.5);
+    gCtx.stroke();
+}
+
+function _getTextWidth(txt) {
+    return gCtx.measureText(txt).width;
+}
+
+function _setFont(size, font) {
+    gCtx.font = `${size * 2}px ${font}`;
+}
+
+function _getCenter(textWidth) {
+    return (gElCanvas.width / 2) - (textWidth / 2)
+}
+
+function _getValidSize(size ,txt, font) {
+
+    while (gCtx.measureText(txt).width > gElCanvas.width - 5) {
+        size--
+        gCtx.font = `${size * 2}px ${font}`;
+    }
+
+    return size
 }
 
 

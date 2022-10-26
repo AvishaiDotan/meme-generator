@@ -31,7 +31,8 @@ function addLine(txt) {
             size: 20,
             align: 'left',
             color: 'red',
-            strokeColor: 'black'
+            strokeColor: 'black', 
+            font: 'impact'
         }
     )
 
@@ -61,6 +62,7 @@ function generateRandomMeme() {
             align: 'center',
             color: textColor,
             strokeColor,
+            font: 'impact'
         })
         
     }
@@ -130,6 +132,7 @@ function _createLines() {
                     align: 'center',
                     color: 'white',
                     strokeColor: 'black',
+                    font: 'impact',
                 },
                 {
                     txt: 'Edit Text',
@@ -137,6 +140,7 @@ function _createLines() {
                     align: 'center',
                     color: 'white',
                     strokeColor: 'black',
+                    font: 'impact',
                 }
             ]
         }
