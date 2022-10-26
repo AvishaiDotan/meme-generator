@@ -28,3 +28,7 @@ const gMemeImgs = [
 function getImgs() {
     return gMemeImgs
 }
+
+function getRandomImageIdx() {
+    return gMemeImgs[getRandomIntInclusive(0, gMemeImgs.length - 1)].imgIdx
+}

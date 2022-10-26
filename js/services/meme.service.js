@@ -1,6 +1,20 @@
 'use strict'
 
 const MEME_KEY = 'memeDB'
+const MEME_TEXTS = [
+    'Picture to sent your girlfriend and say us',
+    'NOT',
+    'Yes!',
+    'Police After Police Before',
+    'Your Mama has',
+    'TV in the 90\'s',
+    'TV in the 60\'s',
+    'Real Sports Fan',
+    'Real Stupid Joke When tailed To YOUR father',
+    'Israel VS World',
+    'Mama and Baby Having Fun',
+    'Mama and Cola Having Fun',
+]
 
 let gMeme
 _createLines()
@@ -16,7 +30,8 @@ function addLine(txt) {
             txt,
             size: 20,
             align: 'left',
-            color: 'red'
+            color: 'red',
+            strokeColor: 'black'
         }
     )
 
@@ -28,6 +43,33 @@ function switchLine() {
     if (gMeme.selectedLineIdx === (gMeme.lines.length - 1)) gMeme.selectedLineIdx = -1
 
     gMeme.selectedLineIdx++
+}
+
+function generateRandomMeme() {
+
+    const imgIdx = getRandomImageIdx()
+    const linesAmount = getRandomIntInclusive(1, 2)
+    const size = getRandomIntInclusive(12, 50)
+    const textColor = getRandomColor()
+    const strokeColor = getRandomColor()
+
+    const lines = []
+    for (let i = 0; i < linesAmount; i++) {
+        lines.push({
+            txt: getRandomMemeText(),
+            size,
+            align: 'center',
+            color: textColor,
+            strokeColor,
+        })
+        
+    }
+
+    gMeme = {
+        selectedImgId: imgIdx,
+        selectedLineIdx: 0,
+        lines,
+    }
 }
 
 // Getters
@@ -86,13 +128,15 @@ function _createLines() {
                     txt: 'Edit Text',
                     size: 20,
                     align: 'center',
-                    color: 'white'
+                    color: 'white',
+                    strokeColor: 'black',
                 },
                 {
                     txt: 'Edit Text',
                     size: 20,
                     align: 'center',
-                    color: 'white'
+                    color: 'white',
+                    strokeColor: 'black',
                 }
             ]
         }
@@ -100,4 +144,8 @@ function _createLines() {
 
     gMeme = meme
     _saveMemeToStorage()
+}
+
+function getRandomMemeText() {
+    return MEME_TEXTS[getRandomIntInclusive(0, MEME_TEXTS.length - 1)]
 }

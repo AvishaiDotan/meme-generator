@@ -28,7 +28,17 @@
     <main class="main-container">
         
         <section class="gallery-container">
-            <div class="search-bar"></div>
+            <div class="search-bar">
+                <label>
+                    <input type="text" class="text-input">
+                </label>
+                <div class="trending-words">
+                    <span>Cats</span>
+                    <span>Mouse</span>
+                    <span>Dogs</span>
+                </div>
+                <button onclick="onGenerateRandomMeme()">Random Meme</button>
+            </div>
             <div class="gallery"></div>
         </section>
 
@@ -43,10 +53,11 @@
             <div class="editor-container"> 
                 <div class="text-input-actions">
                     <label>
-                        <input data-action="user-txt-input" oninput="onSetLineTxt(this.value)"
+                        <input data-action="user-txt-input" class="text-input" oninput="onSetLineTxt(this.value)"
                         placeholder="Enter Your Meme Line Here" type="text">
+                        <button onclick="onAddLine()"><img src="icons/add.png"></button>
                     </label>
-                    <button onclick="onAddLine()"><img src="icons/add.png"></button>
+                    
                 </div>
                 <div class="text-style-actions">
                     <label>

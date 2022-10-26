@@ -43,12 +43,13 @@ function drawLine(lines) {
     const validYAxisPos = [100, 400, 200, 300]
     const selectedIdx = getSelectedLineIdx()
 
-    lines.forEach(({ txt, size, align, color }, idx) => {
+    lines.forEach(({ txt, size, align, color, strokeColor }, idx) => {
 
         gCtx.setLineDash([]);
         gCtx.strokeStyle = "black";
         gCtx.lineWidth = 3;
         gCtx.fillStyle = color
+        gCtx.strokeStyle = strokeColor
         gCtx.font = `${size * 2}px Impact`;
 
         const textWidth = gCtx.measureText(txt).width;

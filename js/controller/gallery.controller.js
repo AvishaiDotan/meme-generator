@@ -23,3 +23,9 @@ function onImgSelect(imgIdx) {
     renderMeme()
     onSwitchSection()
 }
+
+function onGenerateRandomMeme() {
+    generateRandomMeme()
+    renderMeme()
+    onSwitchSection()
+}
