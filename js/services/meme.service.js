@@ -31,13 +31,29 @@ function addLine(txt) {
     gMeme.lines.push(
         {
             txt,
-            size: 20,
+            fontSize: 20,
             align: 'left',
             color: 'red',
             strokeColor: 'black',
-            font: 'impact'
+            font: 'impact',
+            pos: {},
+            isDragged: false,
         }
     )
+}
+
+function addEmoji(emoji) {
+    gMeme.lines.push(
+        {
+            txt: emoji,
+            fontSize: 20,
+            align: 'center',
+            color: 'white',
+            strokeColor: 'black',
+            font: 'impact',
+            pos: {},
+            isDragged: false,
+        })
 }
 
 function switchLine() {
@@ -51,7 +67,7 @@ function generateRandomMeme() {
 
     const imgIdx = getRandomImageIdx()
     const linesAmount = getRandomIntInclusive(1, 2)
-    const size = getRandomIntInclusive(12, 50)
+    const fontSize = getRandomIntInclusive(12, 50)
     const textColor = getRandomColor()
     const strokeColor = getRandomColor()
 
@@ -59,11 +75,13 @@ function generateRandomMeme() {
     for (let i = 0; i < linesAmount; i++) {
         lines.push({
             txt: getRandomMemeText(),
-            size,
+            fontSize,
             align: 'center',
             color: textColor,
             strokeColor,
-            font: 'impact'
+            font: 'impact',
+            pos: {},
+
         })
 
     }
@@ -104,6 +122,17 @@ function getSavedMemes() {
     return loadFromStorage(MEME_KEY)
 }
 
+function getItemByPos(pos) {
+    return gMeme.lines.findIndex((line) => {
+            return ((pos.x + 20) > line.pos.x && (pos.x - 20) < (line.pos.x + line.size.width) &&
+            (pos.y + 20) > line.pos.y - line.size.height && (pos.y - 20) < (line.pos.y))
+    })
+}
+
+function getLineByIdx(idx) {
+    return gMeme.lines[idx]
+}
+
 
 //Setters 
 function setImg(imgIdx) {
@@ -111,19 +140,43 @@ function setImg(imgIdx) {
 }
 
 function setLineTxt(txt) {
-    gMeme.lines[gMeme.selectedLineIdx].txt = txt
+    const line = getSelectedLine()
+    if (line) line.txt = txt   
 }
 
 function setLineColor(color) {
-    gMeme.lines[gMeme.selectedLineIdx].color = color
+    const line = getSelectedLine()
+    if (line) line.color = color
 }
 
 function setFontSize(diff) {
+    const line = getSelectedLine()
+    if (!line) return
 
-    const updatedSize = gMeme.lines[gMeme.selectedLineIdx].size + diff
+    const updatedSize = line.fontSize + diff
     if (updatedSize < 12 || updatedSize > 50) return
 
-    gMeme.lines[gMeme.selectedLineIdx].size = updatedSize
+    line.fontSize = updatedSize
+}
+
+function setLinePos(lineIdx, x, y) {
+    const line = getLineByIdx(lineIdx)
+    line.pos = {x, y}
+}
+
+function setLineSize(lineIdx, width, height) {
+    const line = getLineByIdx(lineIdx)
+    if (line) line.size = {width, height}
+    
+}
+
+function setSelectedItem(itemIdx) {
+    gMeme.selectedLineIdx = itemIdx
+}
+
+function setDraggedItem(itemIdx, state) {
+    const line = getLineByIdx(itemIdx)
+    line.isDragged = state
 }
 
 
@@ -139,21 +192,25 @@ function _createLines() {
         lines: [
             {
                 txt: 'Edit Text',
-                size: 20,
+                fontSize: 20,
                 align: 'center',
                 color: 'white',
                 strokeColor: 'black',
                 font: 'impact',
+                pos: {},
+                isDragged: false,
             },
             {
                 txt: 'Edit Text',
-                size: 20,
+                fontSize: 20,
                 align: 'center',
                 color: 'white',
                 strokeColor: 'black',
                 font: 'impact',
+                pos: {},
+                isDragged: false,
             }
-        ]
+        ],
     }
 }
 

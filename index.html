@@ -8,13 +8,22 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css\main.css">
 
+    <datalist id="search-tags">
+        <option value="prime minister">
+        <option value="animal">
+        <option value="kids">
+        <option value="smile">
+        <option value="adult">
+        <option value="insult">
+    </datalist>
 </head>
 
 <body class="main-layout" onload="onInit()">
 
     <header class="main-header main-layout full">
         <div class="header-layout">
-            <h1  onclick="onShowGallery()" class="header-logo clean-text">Meme Generator<span class="logo-dot">.</span></h1>
+            <h1 onclick="onShowGallery()" class="header-logo clean-text">Meme Generator<span class="logo-dot">.</span>
+            </h1>
             <nav>
                 <ul class="clean-list">
                     <li><a onclick="onShowSavedMemes()">Saved</a></li>
@@ -26,11 +35,11 @@
     </header>
 
     <main class="main-container">
-        
+
         <section class="gallery-container">
             <div class="search-bar">
                 <label>
-                    <input type="text" class="text-input">
+                    <input oninput="onSetFilterBy(this.value)" list="search-tags" type="text" class="text-input">
                 </label>
                 <div class="trending-words">
                     <span>Cats</span>
@@ -39,24 +48,26 @@
                 </div>
                 <button onclick="onGenerateRandomMeme()">Random Meme</button>
             </div>
-            <div class="gallery"></div>   
+            <div class="gallery"></div>
         </section>
 
-        
 
-        <section class="canvas-editor-container">
+
+        <section class="canvas-editor-container hide">
 
             <div class="canvas-container">
                 <canvas width="500" height="500"></canvas>
             </div>
 
-            <div class="editor-container"> 
+            <div class="editor-container">
 
                 <div class="text-input-actions">
                     <label>
                         <input data-action="user-txt-input" class="text-input" oninput="onSetLineTxt(this.value)"
-                        placeholder="Enter Your Meme Line Here" type="text">
-                        <button onclick="onAddLine()"><img src="icons/add.png"></button>
+                            placeholder="Enter Your Meme Line Here" type="text">
+                        <button class="add-text-btn" onclick="onAddLine()"><img src="icons/add.png"></button>
+                        <button onclick="onRenderClickEvents()" class="picker">😃</button>
+                        <textarea class="demo"></textarea>
                     </label>
                 </div>
 
@@ -69,7 +80,8 @@
                 </div>
 
                 <div class="select-line-actions">
-                    <button onclick="onSwitchLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                    <button onclick="onSwitchLine()"><img
+                            src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
                 </div>
 
                 <div class="save-share-update-actions">
@@ -78,8 +90,8 @@
             </div>
         </section>
 
-        <section class="saved-memes-container">
-            <div class="saved-memes"></div>
+        <section class="saved-memes-container hide">
+            <div class="saved-memes hide"></div>
         </section>
 
     </main>
@@ -110,6 +122,7 @@
 
 
     <script src="https://kit.fontawesome.com/73ec7ec8db.js" crossorigin="anonymous"></script>
+    <script src="js/vanillaEmojiPicker.js"></script>
     <script src="js\services\utils.service.js"></script>
     <script src="js\services\storage.service.js"></script>
     <script src="js\services\meme.service.js"></script>

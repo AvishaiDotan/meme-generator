@@ -27,6 +27,11 @@ function renderSavedMemes() {
 
 }
 
+function onSetFilterBy(filterValue) {
+    setFilterBy(filterValue)
+    renderGallery()
+}
+
 function onShowEditor() {
     document.querySelector('.canvas-editor-container').classList.remove('hide')
     document.querySelector('.gallery-container').classList.add('hide')

@@ -4,6 +4,8 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 let gElCanvas
 let gCtx
+let gCurrLineIdx = 0
+let gStartPos
 
 
 
@@ -13,7 +15,7 @@ function initCanvas() {
     gCtx = gElCanvas.getContext('2d')
     renderMeme()
     updateInputText('Edit Text')
-    // _addListeners()
+    _addListeners()
 }
 
 function renderMeme() {
@@ -41,24 +43,33 @@ function drawImg(imgIdx) {
 function drawLine(lines) {
 
     const validYAxisPos = [100, 400, 200, 300]
+    const centerXAxisPos = 182.832;
     const selectedIdx = getSelectedLineIdx()
 
-    lines.forEach(({ txt, size, align, color, strokeColor, font }, idx) => {
+    lines.forEach((line, idx) => {
+        let x, y;
 
-        _setFont(size, font)
+        let { txt, fontSize, align, color, strokeColor, font, pos } = line
+        _setFont(fontSize, font)
         let textWidth = _getTextWidth(txt)
 
         if (textWidth > gElCanvas.width) {
-            console.log(size);
-            size = _getValidSize(size, txt, font)
+            fontSize = _getValidSize(fontSize, txt, font)
             textWidth = _getTextWidth(txt)
-            console.log(size);
         }
 
-        const center = _getCenter(textWidth)
+        if (pos?.x) {
+            x = pos.x
+            y = pos.y
+        } else {
+            x = _getCenter(textWidth)
+            y = validYAxisPos[idx]
+        }
+        
 
         if (idx === selectedIdx) {
-            _drawBorder(center, size, textWidth, validYAxisPos[idx])
+            _drawBorder(x, fontSize, textWidth, y)
+            updateInputText(txt)
         }
 
         gCtx.setLineDash([]);
@@ -66,11 +77,16 @@ function drawLine(lines) {
         gCtx.fillStyle = color
         gCtx.strokeStyle = strokeColor
 
-        gCtx.fillText(txt, center, validYAxisPos[idx]);
-        gCtx.strokeText(txt, center, validYAxisPos[idx]);
+        gCtx.fillText(txt, x, y);
+        gCtx.strokeText(txt, x, y);
+
+        setLinePos(idx, x, y)
+        setLineSize(idx, textWidth, fontSize)
     })
 
 }
+
+
 
 
 
@@ -91,15 +107,44 @@ function addTouchListeners() {
 
 // Listeners Functions
 function onDown(ev) {
+    const pos = _getEvPos(ev)
+    const itemIdx = getItemByPos(pos)
+    setSelectedItem(itemIdx)
 
+    if (itemIdx < 0) {
+        renderMeme()
+        return
+    }
+
+    setDraggedItem(itemIdx, true)
+    
+
+    gCurrLineIdx = itemIdx
+    gStartPos = pos
+
+    document.body.style.cursor = 'grabbing'
+    renderMeme()
 }
 
 function onMove(ev) {
+    const line = getLineByIdx(gCurrLineIdx)
+    if (!line.isDragged) return
 
+    const pos = _getEvPos(ev)
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+
+    const newX = line.pos.x + dx
+    const newY = line.pos.y + dy
+    setLinePos(gCurrLineIdx, newX, newY)
+    
+    gStartPos = pos
+    renderMeme()
 }
 
 function onUp(ev) {
-
+    setDraggedItem(gCurrLineIdx, false)
+    document.body.style.cursor = 'grab'
 }
 
 function onResize() {
@@ -109,6 +154,7 @@ function onResize() {
 function onClearCanvas() {
 
 }
+
 
 // General onclick functions
 function onSwitchLine() {
@@ -123,13 +169,31 @@ function onSaveMeme() {
     saveMeme()
 }
 
+function onAddEmoji(elEmoji) {
+    const emojiStr = elEmoji.innerText
+
+    if (getSelectedLineIdx() >= 0) {
+        setLineTxt(emojiStr)
+        renderMeme()
+        return
+    }
+
+    
+    addEmoji(emojiStr)
+    renderMeme()
+}
+
+
 // Getters
 function getCanvas() {
     return gElCanvas
 }
 
+
 // Setters
 function onSetLineTxt(txt) {
+    const selectedIdx = getSelectedLineIdx()
+    if (selectedIdx < 0) return
     setLineTxt(txt)
     renderMeme()
 }
@@ -214,6 +278,8 @@ function _getValidSize(size ,txt, font) {
 
     return size
 }
+
+
 
 
 
