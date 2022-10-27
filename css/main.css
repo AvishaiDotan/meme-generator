@@ -284,15 +284,41 @@ button:hover {
     align-content: center;
 }
 
-.search-bar .trending-words {
+.search-bar input {
+    border: none;
+    border-block-end: 0.2rem solid var(--clr-secondary);
+    height: 100%;
+    background-color: var(--clr-secondary);
+}
+.search-bar input:focus {
+    outline: none;
+    border-block-end: 0.2rem solid var(--clr-secondary);
+}
+
+.search-bar .keywords {
     display: flex;
     justify-content: space-evenly;
+    background-color: var(--clr-primary);
+}
+
+.search-bar .keywords {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+}
+
+.search-bar .keywords button {
+    background-color: var(--clr-secondary);
 }
 
 .search-bar span {
     color: var(--clr-1);
     font-size: 2rem;
     font-weight: 600;
+}
+
+.search-bar span:hover {
+    cursor: pointer;
 }
 
 
@@ -311,12 +337,14 @@ button:hover {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     padding: 60px;
+    min-height: 1300px;
 }
 
 .gallery-container .gallery img,
 .saved-memes-container .saved-memes img {
     width: 100%;
     transition: 0.3s;
+    max-width: 300px;
 }
 
 .gallery-container .gallery img:hover,
@@ -327,7 +355,6 @@ button:hover {
 }
 
 .gallery-container .search-bar {
-    height: 130px;
     background-color: var(--clr2);
 }
 
@@ -491,6 +518,7 @@ button:hover {
 .download-modal {
     opacity: 0;
     transition: 0.6s;
+    display: none;
 }
 
 body.open-modal .download-modal {
@@ -502,6 +530,7 @@ body.open-modal .download-modal {
     top: 0;
     left: 0;
     transition: 0.6s;
+    display: block;
 
 }
 body.open-modal .download-modal .modal-container {
@@ -541,7 +570,7 @@ body.open-modal .download-modal .modal-container {
 
     .gallery-container .gallery,
     .saved-memes-container .saved-memes {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
     .main-header .header-logo {
@@ -664,7 +693,7 @@ body.open-modal .download-modal .modal-container {
     }
 
     .main-container {
-        margin-block-start: 116px;
+        margin-block-start: 190px
     }
 
 }

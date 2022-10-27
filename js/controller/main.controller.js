@@ -5,6 +5,7 @@
 function onInit() {
     initCanvas()
     renderGallery()
+    renderKeywords()
     renderSavedMemes()
 }
 
@@ -97,6 +98,7 @@ function onToggleModal() {
 
 function onToggleDownloadModal() {
     document.body.classList.toggle('open-modal')
+    
 }
 
 function onDownloadMeme(elLink) {

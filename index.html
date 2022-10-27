@@ -10,7 +10,7 @@
 
     <datalist id="search-tags">
         <option value="prime minister">
-        <option value="animal">
+        <option value="animals">
         <option value="kids">
         <option value="smile">
         <option value="adult">
@@ -43,12 +43,12 @@
                 <label>
                     <input oninput="onSetFilterBy(this.value)" list="search-tags" type="text" class="text-input">
                 </label>
-                <div class="trending-words">
+                <div class="keywords">
                     <span>Cats</span>
                     <span>Mouse</span>
                     <span>Dogs</span>
                 </div>
-                <button onclick="onGenerateRandomMeme()">Random Meme</button>
+                <button class="clean-btn" onclick="onGenerateRandomMeme()">Random Meme</button>
             </div>
             <div class="gallery"></div>
         </section>

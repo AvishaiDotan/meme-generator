@@ -1,6 +1,14 @@
 'use strict'
 
 let gFilter = ''
+let gKeywordSearchCountMap = {
+    'funny': 22,
+    'animals': 32,
+    'prime minister': 20,
+    'insult': 34,
+    'kids': 20,
+    'adult': 21
+}
 
 const gMemeImgs = [
     {imgIdx: 1, tags: ['insult', 'prime minister']},
@@ -13,7 +21,7 @@ const gMemeImgs = [
     {imgIdx: 8, tags: ['you', 'adult']},
     {imgIdx: 9, tags: ['kids', 'smile']},
     {imgIdx: 10, tags: ['prime minister', 'smile', 'adult']},
-    {imgIdx: 11, tags: ['fight', 'adult']},
+    {imgIdx: 11, tags: ['fight', 'adult', 'insult']},
     {imgIdx: 12, tags: ['you', 'adult']},
     {imgIdx: 13, tags: ['you', 'adult']},
     {imgIdx: 14, tags: ['you', 'adult', 'insult']},
@@ -23,7 +31,9 @@ const gMemeImgs = [
     {imgIdx: 18, tags: ['you', 'adult']},
 ]
 
-
+function addEntry(keyword) {
+    gKeywordSearchCountMap[keyword]++
+}
 
 
 // Getters
@@ -36,6 +46,13 @@ function getImgs() {
     }
     return gMemeImgs
 }
+
+function getKeywords() {
+    return gKeywordSearchCountMap
+}
+
+
+// Setters
 
 function setFilterBy(filterValue) {
     if (gFilter !== undefined) gFilter = filterValue

@@ -1,5 +1,7 @@
 'use strict'
 
+
+
 function renderGallery() {
     const imgs = getImgs()
 
@@ -11,6 +13,22 @@ function renderGallery() {
     `)
 
     document.querySelector('.gallery').innerHTML = strHTMLs.join('')
+}
+
+function renderKeywords() {
+    const keywordsObj = getKeywords()
+    const keywords = Object.keys(keywordsObj)
+
+    let strHTML = ''
+    for (var i = 0; i < keywords.length; i++) {
+        if (window.innerWidth < 1200 && i === 4) break
+
+        strHTML += `<span style="font-size: ${keywordsObj[keywords[i]]}px;"
+                          onclick="onSetFilterBy(this.innerText);onAddEntry('${keywords[i]}')">${keywords[i]}
+                    </span>`
+    }
+
+    document.querySelector('.keywords').innerHTML = strHTML
 }
 
 function renderSavedMemes() {
@@ -25,12 +43,16 @@ function renderSavedMemes() {
     `)
 
     document.querySelector('.saved-memes').innerHTML = strHTMLs.join('')
-
 }
 
 function onSetFilterBy(filterValue) {
     setFilterBy(filterValue)
     renderGallery()
+}
+
+function onAddEntry(keyword) {
+    addEntry(keyword)
+    renderKeywords()
 }
 
 // TODO!
