@@ -34,7 +34,7 @@ function renderKeywords() {
 
 function renderSavedMemes() {
     const memes = getSavedMemes()
-    if (!memes) return
+    if (!memes || !memes.length) return
     
     let strHTMLs = memes.map(({memeData, memeUri}, idx) => `
 
