@@ -17,7 +17,6 @@ const MEME_TEXTS = [
 ]
 
 const gSavedMemes = loadFromStorage(MEME_KEY) || []
-
 let gMeme
 
 _createLines()
@@ -25,14 +24,12 @@ _createLines()
 
 function addLine(txt) {
     if (!gMeme.selectedLineIdx === -1) return
-    if (gMeme.lines.length >= 4) return
-
 
     gMeme.lines.push(
         {
             txt,
             fontSize: 20,
-            align: 'left',
+            align: '',
             color: 'red',
             strokeColor: 'black',
             font: 'impact',
@@ -51,7 +48,7 @@ function addEmoji(emoji) {
             color: 'white',
             strokeColor: 'black',
             font: 'impact',
-            pos: {},
+            pos: {x: getRandomIntInclusive(150, 350), y: getRandomIntInclusive(150, 350)},
             isDragged: false,
         })
 }

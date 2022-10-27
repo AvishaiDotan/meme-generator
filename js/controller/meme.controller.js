@@ -34,16 +34,9 @@ function renderMeme() {
     }
 }
 
-
-
-function drawImg(imgIdx) {
-
-}
-
 function drawLine(lines) {
-
     const yPositions = [100, 400, 200, 300]
-    const xCenter = 182.832;
+
     const selectedIdx = getSelectedLineIdx()
     lines.forEach((line, idx) => {
         let x, y;
@@ -69,7 +62,7 @@ function drawLine(lines) {
         } else {
             // Default Init Centering
             x = _getCenter(textWidth)
-            y = yPositions[idx]
+            y = yPositions[idx] || getRandomIntInclusive(200, 300)
         }
         
 
@@ -195,7 +188,11 @@ function onSwitchLine() {
 }
 
 function onSaveMeme() {
-    saveMeme()
+    setSelectedItem(-1)
+    renderMeme()
+    setTimeout(() => {
+        saveMeme()
+    }, 1000) 
 }
 
 function onAddEmoji(elEmoji) {
