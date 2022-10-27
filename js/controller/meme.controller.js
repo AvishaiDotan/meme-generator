@@ -43,11 +43,11 @@ function drawImg(imgIdx) {
 function drawLine(lines) {
 
     const yPositions = [100, 400, 200, 300]
-    const centerXAxisPos = 182.832;
+    const xCenter = 182.832;
     const selectedIdx = getSelectedLineIdx()
-
     lines.forEach((line, idx) => {
         let x, y;
+    
 
         let { txt, fontSize, align, color, strokeColor, font, pos } = line
         _setFont(fontSize, font)
@@ -103,9 +103,9 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mouseup', onUp)
 
-    
+    // TODO DELETE
     window.addEventListener('resize', () => {
-        resizeMeme()
+        onResizeMeme()
     })
 }
 
@@ -127,13 +127,10 @@ function resizeMeme() {
         canvasSize = windowWidth - 120
     } 
 
-    console.log(canvasSize);
-
     gElCanvas.width = canvasSize
     gElCanvas.height = canvasSize
     document.querySelector('.canvas-container').style.width = `${canvasSize}px`
     document.querySelector('.canvas-container').style.height = `${canvasSize}px`
-    renderMeme()
 }
 
 
@@ -218,6 +215,11 @@ function onAddEmoji(elEmoji) {
 function onDeleteLine() {
     deleteLine()
     updateTextInputBar('')
+    renderMeme()
+}
+
+function onResizeMeme() {
+    resizeMeme()
     renderMeme()
 }
 
