@@ -18,6 +18,7 @@ const MEME_TEXTS = [
 
 const gSavedMemes = loadFromStorage(MEME_KEY) || []
 let gMeme
+let gUploadImg
 
 _createLines()
 
@@ -145,6 +146,10 @@ function getLineByIdx(idx) {
     return gMeme.lines[idx]
 }
 
+function getUploadedImage() {
+    return gUploadImg
+}
+
 
 //Setters 
 function setImg(imgIdx) {
@@ -210,6 +215,11 @@ function setStrokeColor(color) {
     if (!line) return
 
     line.strokeColor = color
+}
+
+function setUploadedImage(img) {
+    gMeme.selectedImgId = -1
+    gUploadImg = img
 }
 
 

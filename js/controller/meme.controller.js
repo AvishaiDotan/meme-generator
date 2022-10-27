@@ -22,13 +22,17 @@ function initCanvas() {
 
 function renderMeme() {
     const { selectedImgId, lines } = getMeme()
-
-    // Render Background Image
     const img = new Image()
-    img.src = `./img/meme-imgs (square)/${selectedImgId}.jpg`
+
+    if (selectedImgId !== -1) {
+        img.src = `./img/meme-imgs (square)/${selectedImgId}.jpg`
+    } else {
+        img.src = getUploadedImage()
+    }
+
+    
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-
         // Render Lines:
         drawLine(lines)
     }
@@ -84,9 +88,6 @@ function drawLine(lines) {
     })
 
 }
-
-
-
 
 
 
@@ -218,6 +219,10 @@ function onDeleteLine() {
 function onResizeMeme() {
     resizeMeme()
     renderMeme()
+}
+
+function onUploadImg(ev) {
+    loadImageFromInput(ev, renderMeme)
 }
 
 

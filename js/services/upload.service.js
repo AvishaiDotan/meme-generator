@@ -38,3 +38,19 @@ function doUploadImg(imgDataUrl, onSuccess) {
   XHR.open('POST', '//ca-upload.com/here/upload.php')
   XHR.send(formData)
 }
+
+
+
+
+function loadImageFromInput(ev, onImageReady) {
+  const reader = new FileReader()
+
+  reader.onload = function (event) {
+    let img = new Image()
+    img.src = event.target.result 
+    setUploadedImage(event.target.result)
+    img.onload = onImageReady.bind(null, img)
+  }
+
+  reader.readAsDataURL(ev.target.files[0])
+}
