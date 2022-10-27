@@ -113,6 +113,13 @@ function deleteLine() {
     gMeme.selectedLineIdx = -1
 }
 
+function moveLine(diff) {
+    const line = getSelectedLine()
+    if (!line) return
+
+    line.pos.y += +diff
+}
+
 // Getters
 function getMeme() {
     return gMeme
@@ -199,6 +206,13 @@ function setLineAlignment(pos) {
     if (!line) return
 
     line.align = pos
+}
+
+function setStrokeColor(color) {
+    const line = getSelectedLine()
+    if (!line) return
+
+    line.strokeColor = color
 }
 
 

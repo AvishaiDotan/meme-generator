@@ -194,10 +194,7 @@ function onDeleteLine() {
     renderMeme()
 }
 
-function onSetLineAlignment(pos) {
-    setLineAlignment(pos)
-    renderMeme()
-}
+
 
 
 // Getters
@@ -241,6 +238,21 @@ function onSetFont(font) {
 function updateTextInputBar(txt) {
     const elInput = document.querySelector('[data-action="user-txt-input"]')
     elInput.value = txt
+}
+
+function onSetLineAlignment(pos) {
+    setLineAlignment(pos)
+    renderMeme()
+}
+
+function onSetStrokeColor(color) {
+    setStrokeColor(color)
+    renderMeme()
+}
+
+function onMoveLine(diff) {
+    moveLine(diff)
+    renderMeme()
 }
 
 
@@ -301,7 +313,6 @@ function _getValidSize(size ,txt, font) {
 }
 
 function _getPosByAlign(align, textWidth) {
-    console.log(align);
     switch (align) {
         case 'center': 
             return _getCenter(textWidth)
@@ -310,7 +321,6 @@ function _getPosByAlign(align, textWidth) {
         case 'left':
             return 0
     }
-
 }
 
 

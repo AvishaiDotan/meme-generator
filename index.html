@@ -75,6 +75,9 @@
                     <label>
                         <input oninput="onSetLineColor(this.value)" type="color">
                     </label>
+                    <label>
+                        <input oninput="onSetStrokeColor(this.value)" type="color">
+                    </label>
                     <button onclick="onSetFontSize(1)"><img src="/icons/increase font - icon.png"></button>
                     <button onclick="onSetFontSize(-1)"><img src="icons/decrease font - icon.png"></button>
                     <label>
@@ -84,10 +87,17 @@
                             <option value="Arial">Arial</option>
                         </select>
                     </label>
-                    <div class="text-align-actions">
-                        <button onclick="onSetLineAlignment('left')"><i class="fa-solid fa-align-left"></i></i></i></button>
-                        <button onclick="onSetLineAlignment('center')"><i class="fa-solid fa-align-justify"></i></button>
-                        <button onclick="onSetLineAlignment('right')"><i class="fa-solid fa-align-right"></i></i></button>
+                </div>
+
+                <div class="text-align-actions">
+                    <button onclick="onSetLineAlignment('left')"><i class="fa-solid fa-align-left"></i></i></i></button>
+                    <button onclick="onSetLineAlignment('center')"><i class="fa-solid fa-align-justify"></i></button>
+                    <button onclick="onSetLineAlignment('right')"><i class="fa-solid fa-align-right"></i></i></button>
+                    <!-- JoyStick Implementation -->
+                    <!-- <div onclick="console.log(joy.GetPosX())" class="joystick"></div> -->
+                    <div class="movement-actions">
+                        <button onclick="onMoveLine('-10')"><i class="fa-solid fa-arrow-up"></i></button>
+                        <button onclick="onMoveLine('10')"><i class="fa-solid fa-arrow-down"></i></i></button>
                     </div>
                 </div>
 
@@ -137,6 +147,7 @@
 
     <script src="https://kit.fontawesome.com/73ec7ec8db.js" crossorigin="anonymous"></script>
     <script src="js/vanillaEmojiPicker.js"></script>
+    <script src="js/joy.min.js"></script>
     <script src="js\services\utils.service.js"></script>
     <script src="js\services\storage.service.js"></script>
     <script src="js\services\meme.service.js"></script>
