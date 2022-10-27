@@ -81,3 +81,18 @@ function onRenderClickEvents() {
         l.forEach(li => li.addEventListener('click', ()=>{onAddEmoji(li)}))
     }, 500)
 }
+
+function onToggleModal() {
+    const elA = document.querySelectorAll('.main-header nav ul > li a')
+
+    const transitionA =  (elA[0].classList.contains(open)) ? '.3s' : '0.9s'
+    const transitionB =  (elA[0].classList.contains(open)) ? '0.9s' : '0.3s'
+
+    elA.forEach(a => {a.classList.toggle('open'); a.style.transition = transitionA})
+    
+    const elDropdown = document.querySelector('.dropdown')
+    elDropdown.style.transition = transitionB
+    elDropdown.classList.toggle('open')
+}
+
+

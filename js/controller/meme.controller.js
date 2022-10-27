@@ -25,7 +25,7 @@ function renderMeme() {
 
     // Render Background Image
     const img = new Image()
-    img.src = `/img/meme-imgs (square)/${selectedImgId}.jpg`
+    img.src = `./img/meme-imgs (square)/${selectedImgId}.jpg`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
