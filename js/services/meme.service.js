@@ -222,6 +222,10 @@ function setUploadedImage(img) {
     gUploadImg = img
 }
 
+function setMeme(meme) {
+    gMeme = meme
+}
+
 
 
 // Private Fucntions

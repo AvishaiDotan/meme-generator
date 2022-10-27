@@ -202,6 +202,10 @@ button:hover {
     color: var(--clr-2);
 }
 
+.main-header .header-logo:hover {
+    cursor: pointer;
+}
+
 .main-header .header-logo .logo-dot {
     color: var(--clr-primary);
     font-size: 4rem;
@@ -597,6 +601,7 @@ body.open-modal .download-modal .modal-container {
     .main-header .header-logo {
         font-size: 3em;
     }
+
 
     .canvas-editor-container .editor-container {
         padding: 1rem;

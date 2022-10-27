@@ -96,11 +96,6 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mouseup', onUp)
-
-    // TODO DELETE
-    window.addEventListener('resize', () => {
-        onResizeMeme()
-    })
 }
 
 function addTouchListeners() {

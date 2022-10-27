@@ -38,7 +38,7 @@ function renderSavedMemes() {
     
     let strHTMLs = memes.map(({memeData, memeUri}, idx) => `
 
-            <article onclick="logThisIdx('${idx}')" data-meme="${JSON.stringify(memeData)}">
+            <article onclick="onEditSavedMeme('${idx}')" data-meme="${JSON.stringify(memeData)}">
                 <img src="${memeUri}">
             </article>
     `)
@@ -56,14 +56,14 @@ function onAddEntry(keyword) {
     renderKeywords()
 }
 
-// TODO!
-function logThisIdx(idx) {
+
+function onEditSavedMeme(idx) {
     const memes = getSavedMemes()
     const {memeData} = memes[idx]
-    gMeme = memeData
+
+    setMeme(memeData)
     renderMeme()
     onShowEditor()
-
 }
 
 function onImgSelect(imgIdx) {
