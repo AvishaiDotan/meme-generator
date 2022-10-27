@@ -6,7 +6,7 @@ function renderGallery() {
     let strHTMLs = imgs.map(({imgIdx}) => `
 
             <article onclick="onImgSelect(${imgIdx})" class="meme-preview"">
-                <img src="/img/meme-imgs (square)/${imgIdx}.jpg" alt="">
+                <img src="./img/meme-imgs (square)/${imgIdx}.jpg" alt="">
             </article>
     `)
 
@@ -15,6 +15,7 @@ function renderGallery() {
 
 function renderSavedMemes() {
     const memes = getSavedMemes()
+    if (!memes) return
     
     let strHTMLs = memes.map(({memeData, memeUri}, idx) => `
 

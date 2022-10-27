@@ -14,6 +14,7 @@ let gStartPos
 function initCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
+    resizeMeme()
     renderMeme()
     updateTextInputBar('Edit Text')
     _addListeners()
@@ -101,12 +102,38 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mouseup', onUp)
+
+    
+    window.addEventListener('resize', () => {
+        resizeMeme()
+    })
 }
 
 function addTouchListeners() {
     gElCanvas.addEventListener('touchmove', onMove)
     gElCanvas.addEventListener('touchstart', onDown)
     gElCanvas.addEventListener('touchend', onUp)
+}
+
+function resizeMeme() {
+    const windowWidth = window.innerWidth
+    let canvasSize
+
+    if (windowWidth > 950) {
+        canvasSize = 500
+    } else if (windowWidth <= 950 && windowWidth > 720) {
+        canvasSize = 350
+    } else if (windowWidth <= 720) {
+        canvasSize = windowWidth - 120
+    } 
+
+    console.log(canvasSize);
+
+    gElCanvas.width = canvasSize
+    gElCanvas.height = canvasSize
+    document.querySelector('.canvas-container').style.width = `${canvasSize}px`
+    document.querySelector('.canvas-container').style.height = `${canvasSize}px`
+    renderMeme()
 }
 
 
