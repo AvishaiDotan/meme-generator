@@ -1,32 +1,32 @@
 /* Display Fonts */
 @font-face {
     font-family: Fasthand-Regular;
-    src: url('./fonts/Fasthand/Fasthand-Regular.ttf');
+    src: url(../fonts/Fasthand/Fasthand-Regular.ttf);
 }
 @font-face {
     font-family: DancingScript-Bold;
-    src: url('./fonts/Dancing_Script/static/DancingScript-Bold.ttf');
+    src: url(../fonts/Dancing_Script/static/DancingScript-Bold.ttf');
 }
 @font-face {
     font-family: Monoton-Regular;
-    src: url('./fonts/Monoton/Monoton-Regular.ttf');
+    src: url(./fonts/Monoton/Monoton-Regular.ttf);
 }
 @font-face {
     font-family: Nabla-Regular;
-    src: url('./fonts/Nabla/static/Nabla-Regular.ttf');
+    src: url('../fonts/Nabla/static/Nabla-Regular.ttf');
 }
 @font-face {
     font-family: PressStart2P-Regular;
-    src: url('./fonts/Press_Start_2P/PressStart2P-Regular.ttf');
+    src: url('../fonts/Press_Start_2P/PressStart2P-Regular.ttf');
 }
 @font-face {
     font-family: Slackey-Regular;
-    src: url('./fonts/Slackey/Slackey-Regular.ttf');
+    src: url('../fonts/Slackey/Slackey-Regular.ttf');
 }
 
 
 /* Content Fonts */
 @font-face {
     font-family: Montserrat-Black;
-    src: url('./fonts/Montserrat/static/Montserrat-Black.ttf');
+    src: url('../fonts/Montserrat/static/Montserrat-Black.ttf');
 }
