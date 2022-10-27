@@ -37,14 +37,15 @@
     </header>
 
     <main class="main-container">
-
+        
         <section class="gallery-container">
             <div class="search-bar">
                 <label>
-                    <input oninput="onSetFilterBy(this.value)" list="search-tags" type="text" class="text-input">
+                    <input oninput="onSetFilterBy(this.value)" list="search-tags" 
+                    type="text" class="text-input" placeholder="Search">
                 </label>
                 <div class="keywords"></div>
-                <button class="clean-btn" onclick="onGenerateRandomMeme()">Random Meme</button>
+                <button class="clean-btn random-meme-action" onclick="onGenerateRandomMeme()">Random Meme</button>
             </div>
             <div class="gallery"></div>
         </section>
