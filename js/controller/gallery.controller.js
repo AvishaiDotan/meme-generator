@@ -21,6 +21,7 @@ function renderKeywords() {
 
     let strHTML = ''
     for (var i = 0; i < keywords.length; i++) {
+        if (window.innerWidth <= 450) return
         if (window.innerWidth < 1200 && i === 4) break
 
         strHTML += `<span style="font-size: ${keywordsObj[keywords[i]]}px;"

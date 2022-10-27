@@ -576,6 +576,18 @@ body.open-modal .download-modal .modal-container {
     .main-header .header-logo {
         font-size: 3em;
     }
+
+    .canvas-editor-container .editor-container {
+        padding: 1rem;
+    }
+
+    .editor-container .text-input-actions .picker {
+        transform: translate(-45%, +50%);
+    }
+
+    .editor-container .text-input-actions .add-text-btn {
+        transform: translate(-170%, +50%);
+    }
 }
 
 
@@ -621,6 +633,7 @@ body.open-modal .download-modal .modal-container {
         border: none;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .canvas-editor-container .canvas-container {
@@ -696,4 +709,20 @@ body.open-modal .download-modal .modal-container {
         margin-block-start: 190px
     }
 
+    .open-download-modal-action {
+        bottom: -85px;
+        border-radius: 50px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .footer-layout .personal-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .main-header .header-logo {
+        font-size: 2em;
+    }
 }

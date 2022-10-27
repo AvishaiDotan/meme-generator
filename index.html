@@ -43,11 +43,7 @@
                 <label>
                     <input oninput="onSetFilterBy(this.value)" list="search-tags" type="text" class="text-input">
                 </label>
-                <div class="keywords">
-                    <span>Cats</span>
-                    <span>Mouse</span>
-                    <span>Dogs</span>
-                </div>
+                <div class="keywords"></div>
                 <button class="clean-btn" onclick="onGenerateRandomMeme()">Random Meme</button>
             </div>
             <div class="gallery"></div>
@@ -121,8 +117,9 @@
                 <div class="save-share-update-actions">
                     <button class="btn" onclick="onSaveMeme()">Save</button>
                     <div>
-                        <button class="open-download-modal-action" onclick="onToggleDownloadModal();uploadImg()"><i
-                                class="fa-solid fa-file-arrow-down"></i></i></button>
+                        <button class="open-download-modal-action" onclick="onToggleDownloadModal();uploadImg()">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                        </button>
                     </div>
 
                 </div>
