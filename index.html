@@ -84,11 +84,17 @@
                             <option value="Arial">Arial</option>
                         </select>
                     </label>
+                    <div class="text-align-actions">
+                        <button onclick="onSetLineAlignment('left')"><i class="fa-solid fa-align-left"></i></i></i></button>
+                        <button onclick="onSetLineAlignment('center')"><i class="fa-solid fa-align-justify"></i></button>
+                        <button onclick="onSetLineAlignment('right')"><i class="fa-solid fa-align-right"></i></i></button>
+                    </div>
                 </div>
 
                 <div class="select-line-actions">
-                    <button onclick="onSwitchLine()"><img
-                            src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                    <button onclick="onSwitchLine()">
+                        <img src="icons/up-and-down-opposite-double-arrows-side-by-side.png">
+                    </button>
                 </div>
 
                 <div class="save-share-update-actions">

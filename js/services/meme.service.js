@@ -47,7 +47,7 @@ function addEmoji(emoji) {
         {
             txt: emoji,
             fontSize: 20,
-            align: 'center',
+            align: '',
             color: 'white',
             strokeColor: 'black',
             font: 'impact',
@@ -76,7 +76,7 @@ function generateRandomMeme() {
         lines.push({
             txt: getRandomMemeText(),
             fontSize,
-            align: 'center',
+            align: '',
             color: textColor,
             strokeColor,
             font: 'impact',
@@ -194,6 +194,13 @@ function setDraggedItem(itemIdx, state) {
     line.isDragged = state
 }
 
+function setLineAlignment(pos) {
+    const line = getSelectedLine()
+    if (!line) return
+
+    line.align = pos
+}
+
 
 
 // Private Fucntions
@@ -209,7 +216,7 @@ function _createLines() {
             {
                 txt: 'Edit Text',
                 fontSize: 20,
-                align: 'center',
+                align: '',
                 color: 'white',
                 strokeColor: 'black',
                 font: 'impact',
@@ -219,7 +226,7 @@ function _createLines() {
             {
                 txt: 'Edit Text',
                 fontSize: 20,
-                align: 'center',
+                align: '',
                 color: 'white',
                 strokeColor: 'black',
                 font: 'impact',

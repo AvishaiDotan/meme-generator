@@ -41,7 +41,7 @@ function drawImg(imgIdx) {
 
 function drawLine(lines) {
 
-    const validYAxisPos = [100, 400, 200, 300]
+    const yPositions = [100, 400, 200, 300]
     const centerXAxisPos = 182.832;
     const selectedIdx = getSelectedLineIdx()
 
@@ -57,12 +57,18 @@ function drawLine(lines) {
             textWidth = _getTextWidth(txt)
         }
 
-        if (pos?.x) {
+        if (align) {
+            // Calc Align
+            x = _getPosByAlign(align, textWidth)
+            y = pos.y
+        } else if (pos?.x) {
+            // Custom Pos By User
             x = pos.x
             y = pos.y
         } else {
+            // Default Init Centering
             x = _getCenter(textWidth)
-            y = validYAxisPos[idx]
+            y = yPositions[idx]
         }
         
 
@@ -109,6 +115,7 @@ function onDown(ev) {
     const pos = _getEvPos(ev)
     const itemIdx = getItemByPos(pos)
     setSelectedItem(itemIdx)
+    setLineAlignment('')
 
     // There No Selected Line
     if (itemIdx < 0) {
@@ -184,6 +191,11 @@ function onAddEmoji(elEmoji) {
 function onDeleteLine() {
     deleteLine()
     updateTextInputBar('')
+    renderMeme()
+}
+
+function onSetLineAlignment(pos) {
+    setLineAlignment(pos)
     renderMeme()
 }
 
@@ -286,6 +298,19 @@ function _getValidSize(size ,txt, font) {
     }
 
     return size
+}
+
+function _getPosByAlign(align, textWidth) {
+    console.log(align);
+    switch (align) {
+        case 'center': 
+            return _getCenter(textWidth)
+        case 'right': 
+            return gElCanvas.width - textWidth
+        case 'left':
+            return 0
+    }
+
 }
 
 
