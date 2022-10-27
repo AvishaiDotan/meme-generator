@@ -5,6 +5,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 let gElCanvas
 let gCtx
 let gCurrLineIdx = 0
+let gBorderColor = 'black'
 let gStartPos
 
 
@@ -14,7 +15,7 @@ function initCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderMeme()
-    updateInputText('Edit Text')
+    updateTextInputBar('Edit Text')
     _addListeners()
 }
 
@@ -30,8 +31,6 @@ function renderMeme() {
         // Render Lines:
         drawLine(lines)
     }
-
-
 }
 
 
@@ -69,7 +68,7 @@ function drawLine(lines) {
 
         if (idx === selectedIdx) {
             _drawBorder(x, fontSize, textWidth, y)
-            updateInputText(txt)
+            updateTextInputBar(txt)
         }
 
         gCtx.setLineDash([]);
@@ -111,24 +110,25 @@ function onDown(ev) {
     const itemIdx = getItemByPos(pos)
     setSelectedItem(itemIdx)
 
+    // There No Selected Line
     if (itemIdx < 0) {
         renderMeme()
         return
     }
 
     setDraggedItem(itemIdx, true)
-    
-
     gCurrLineIdx = itemIdx
     gStartPos = pos
 
-    document.querySelector('canvas').style.cursor = 'grabbing'
     renderMeme()
+    document.body.style.cursor = 'pointer'
+    gCtx.lineDashOffset = getRandomIntInclusive(0, 4);
 }
 
 function onMove(ev) {
     const line = getLineByIdx(gCurrLineIdx)
-    if (!line.isDragged) return
+    if (!line?.isDragged) return
+    
 
     const pos = _getEvPos(ev)
     const dx = pos.x - gStartPos.x
@@ -139,12 +139,17 @@ function onMove(ev) {
     setLinePos(gCurrLineIdx, newX, newY)
     
     gStartPos = pos
+    gCtx.lineDashOffset = getRandomIntInclusive(0, 4);
     renderMeme()
 }
 
 function onUp() {
+    const line = getLineByIdx(gCurrLineIdx)
+    if (!line) return
+
     setDraggedItem(gCurrLineIdx, false)
-    document.querySelector('canvas').style.cursor = 'grab'
+    
+    document.body.style.cursor = 'grab'
 }
 
 
@@ -153,7 +158,7 @@ function onUp() {
 function onSwitchLine() {
     switchLine()
     const {txt} = getSelectedLine()
-    updateInputText(txt)
+    updateTextInputBar(txt)
 
     renderMeme()
 }
@@ -178,6 +183,7 @@ function onAddEmoji(elEmoji) {
 
 function onDeleteLine() {
     deleteLine()
+    updateTextInputBar('')
     renderMeme()
 }
 
@@ -220,12 +226,13 @@ function onSetFont(font) {
     renderMeme()
 }
 
-function updateInputText(txt) {
+function updateTextInputBar(txt) {
     const elInput = document.querySelector('[data-action="user-txt-input"]')
     elInput.value = txt
 }
 
 
+// Private
 function _addListeners() {
     addMouseListeners()
     addTouchListeners()
@@ -253,10 +260,10 @@ function _getEvPos(ev) {
 
 function _drawBorder(center, size, textWidth, yPos) {
     gCtx.beginPath();
-    gCtx.strokeStyle = "black";
-    gCtx.setLineDash([4, 2]);
-    gCtx.rect(center - size, yPos - size * 2, textWidth + size * 2, size * 2.5);
-    gCtx.stroke();
+    gCtx.strokeStyle = gBorderColor
+    gCtx.setLineDash([4, 2])
+    gCtx.rect(center - size, yPos - size * 2, textWidth + size * 2, size * 2.5)
+    gCtx.stroke()
 }
 
 function _getTextWidth(txt) {

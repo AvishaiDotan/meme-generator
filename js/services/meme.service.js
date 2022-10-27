@@ -110,6 +110,7 @@ function deleteLine() {
     if (lineIdx < 0) return 
 
     gMeme.lines.splice(lineIdx, 1)
+    gMeme.selectedLineIdx = -1
 }
 
 // Getters
