@@ -15,10 +15,10 @@
     --clr-secondary: #4b85f0;
 
     /* BP */
-    --xl: 1400px;
-    --l: 1100px;
-    --m: 900px;
-    --s: 700px;
+    --xl: 1000px;
+    --l: 800px;
+    --m: 700px;
+    --s: 600px;
 }
 
 * {
@@ -62,6 +62,14 @@ p {
 
 .text-input {
     width: 100%;
+    background-color: var(--clr2);
+    height: 2rem;
+    border: 0.2rem solid var(--clr-secondary);
+    border-radius: 4px;
+}
+
+.btn {
+    height: 2rem;
     background-color: var(--clr2);
     height: 2rem;
     border: 0.2rem solid var(--clr-secondary);
@@ -138,16 +146,30 @@ p {
 }
 
 /* Btn-helper */
-.clear-btn {
+.clean-btn {
     padding: 0;
     border: 0;
     background-color: transparent;
 }
 
+/* Text Input Helper */
 .clean-text-input {
     border-width: 0;
     border: none;
 
+}
+
+/* Color Picker Helper */
+.clean-color-input {
+    appearance: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+    cursor: pointer;
+    padding: 0cm;
+    border: 0;
+    background-color: transparent;
+    display: table-column-group;
 }
 
 
@@ -213,31 +235,31 @@ p {
     border: 5px solid var(--clr-secondary);
     border-radius: 4px;
     display: flex;
-
+    justify-content: space-between;
 }
+
+
+
 
 .canvas-editor-container.hide {
     display: none;
 }
 
 .canvas-editor-container .canvas-container {
-    width: 50%;
+    width: 500px;
+    height: 500px;
 }
 
-.canvas-editor-container canvas {
-    /* width: 100%;
-    padding: 2rem; */
-}
 
 /* Canvas Editor */
-
 .canvas-editor-container .editor-container {
-    width: 500px;
     padding: 2rem;
+    flex-grow: 1;
+    position: relative;
 }
 
 .canvas-editor-container .editor-container img {
-    width: 1.125rem;
+    width: 2rem;
 }
 
 /* Search Bar */
@@ -271,7 +293,7 @@ p {
 .saved-memes-container .saved-memes {
     display: grid;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     padding: 60px;
 }
@@ -303,22 +325,65 @@ p {
     display: flex;
 }
 
-.saved-memes.hide {
+.saved-memes-container.hide {
     display: none;
 }
 
 
+/* TODO */
 
 /* Canvas Editor Actions */
 .editor-container .text-input-actions .add-text-btn {
     position: absolute;
-    transform: translateX(-100%);
-    height: 2rem;
-    background-color: var(--clr2);
-    height: 2rem;
-    border: 0.2rem solid var(--clr-secondary);
-    border-radius: 4px;
+    transform: translate(-90%, +100%);
+    top: 0;
+    right: 0;
 }
+
+.editor-container .text-input-actions .text-input.margin {
+    margin-block-end: 30px;
+}
+
+.editor-container .text-input-actions .picker {
+    position: absolute;
+    transform: translate(-152%, +100%);
+    top: 0;
+    right: 0;
+}
+
+/* Text Actions */
+.text-style-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.text-style-actions.margin {
+    margin-block-end: 30px;
+}
+
+.text-style-actions .font-picker-action {
+    flex-grow: 1;
+}
+
+.text-style-actions .font-picker-action select {
+    width: 100%;
+}
+
+.text-align-actions {
+    display: flex;
+    justify-content: center;
+    margin-block-end: 30px;
+}
+.text-align-actions .movement-actions {
+    display: flex;
+}
+
+.save-share-update-actions {
+    display: flex;
+    justify-content: center;
+}
+
+
 
 .editor-container .demo {
     display: none;
@@ -387,24 +452,26 @@ p {
 
 
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1100px) {
     .main-layout>*:not(.full) {
         max-width: var(--l);
     }
 
-    .gallery-container .gallery, .saved-memes-container .saved-memes {
+    .gallery-container .gallery,
+    .saved-memes-container .saved-memes {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
-@media screen and (max-width: 1200px) {
+
+@media screen and (max-width: 900px) {
     .main-layout>*:not(.full) {
         max-width: var(--m);
     }
 
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
     .main-layout>*:not(.full) {
         max-width: var(--s);
     }
@@ -413,13 +480,14 @@ p {
         font-size: 3em;
     }
 
-    .gallery-container, .saved-memes-container {
+    .gallery-container,
+    .saved-memes-container {
         border: 0ch;
     }
 
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
     .main-header {
         margin-block-end: 50px;
     }

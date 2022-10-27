@@ -27,8 +27,8 @@
             <nav>
                 <ul class="clean-list">
                     <li><a onclick="onShowSavedMemes()">Saved</a></li>
-                    <li><a>Editor</a></li>
-                    <li><a>About</a></li>
+                    <li><a onclick="onShowEditor()">Editor</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -63,25 +63,27 @@
 
                 <div class="text-input-actions">
                     <label>
-                        <input data-action="user-txt-input" class="text-input" oninput="onSetLineTxt(this.value)"
+                        <input data-action="user-txt-input" class="text-input margin" oninput="onSetLineTxt(this.value)"
                             placeholder="Enter Your Meme Line Here" type="text">
-                        <button class="add-text-btn" onclick="onAddLine()"><img src="icons/add.png"></button>
-                        <button onclick="onRenderClickEvents()" class="picker">😃</button>
+                        <button class="add-text-btn btn" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="onRenderClickEvents()" class="picker btn">😃</button>
                         <textarea class="demo"></textarea>
                     </label>
                 </div>
 
-                <div class="text-style-actions">
+                <div class="text-style-actions margin">
                     <label>
-                        <input oninput="onSetLineColor(this.value)" type="color">
+                        <img class="btn" src="icons/paint-board-and-brush.png">
+                        <input class="clean-color-input " oninput="onSetLineColor(this.value)" type="color" style="position: absolute; z-index: -500;;">
                     </label>
                     <label>
-                        <input oninput="onSetStrokeColor(this.value)" type="color">
+                        <img class="btn" src="icons/text stroke.png">
+                        <input class="clean-color-input strok-color-picker" oninput="onSetStrokeColor(this.value)" type="color">
                     </label>
-                    <button onclick="onSetFontSize(1)"><img src="/icons/increase font - icon.png"></button>
-                    <button onclick="onSetFontSize(-1)"><img src="icons/decrease font - icon.png"></button>
-                    <label>
-                        <select onchange="onSetFont(this.value)">
+                    <button class="clean-btn" onclick="onSetFontSize(1)"><img class="btn" src="/icons/increase font - icon.png"></button>
+                    <button class="clean-btn" onclick="onSetFontSize(-1)"><img class="btn" src="icons/decrease font - icon.png"></button>
+                    <label class="font-picker-action">
+                        <select class="btn" onchange="onSetFont(this.value)">
                             <option value="impact">Impact</option>
                             <option value="sans serif">Sans-Serif</option>
                             <option value="Arial">Arial</option>
@@ -90,26 +92,24 @@
                 </div>
 
                 <div class="text-align-actions">
-                    <button onclick="onSetLineAlignment('left')"><i class="fa-solid fa-align-left"></i></i></i></button>
-                    <button onclick="onSetLineAlignment('center')"><i class="fa-solid fa-align-justify"></i></button>
-                    <button onclick="onSetLineAlignment('right')"><i class="fa-solid fa-align-right"></i></i></button>
+                    <button class="btn" onclick="onSetLineAlignment('left')"><i class="fa-solid fa-align-left"></i></i></i></button>
+                    <button class="btn" onclick="onSetLineAlignment('center')"><i class="fa-solid fa-align-justify"></i></button>
+                    <button class="btn" onclick="onSetLineAlignment('right')"><i class="fa-solid fa-align-right"></i></i></button>
                     <!-- JoyStick Implementation -->
                     <!-- <div onclick="console.log(joy.GetPosX())" class="joystick"></div> -->
                     <div class="movement-actions">
-                        <button onclick="onMoveLine('-10')"><i class="fa-solid fa-arrow-up"></i></button>
-                        <button onclick="onMoveLine('10')"><i class="fa-solid fa-arrow-down"></i></i></button>
+                        <button class="btn" onclick="onMoveLine('-10')"><i class="fa-solid fa-arrow-up"></i></button>
+                        <button class="btn" onclick="onMoveLine('10')"><i class="fa-solid fa-arrow-down"></i></i></button>
                     </div>
-                </div>
 
-                <div class="select-line-actions">
-                    <button onclick="onSwitchLine()">
-                        <img src="icons/up-and-down-opposite-double-arrows-side-by-side.png">
+                    <button class="btn" onclick="onSwitchLine()">
+                        <i class="fa-solid fa-object-ungroup"></i>
                     </button>
                 </div>
 
                 <div class="save-share-update-actions">
-                    <button onclick="onSaveMeme()">Save</button>
-                    <button onclick="onDeleteLine()">Delete</button>
+                    <button class="btn" onclick="onSaveMeme()">Save</button>
+                    <button class="btn" onclick="onDeleteLine()">Delete</button>
                 </div>
             </div>
         </section>
@@ -120,7 +120,7 @@
 
     </main>
 
-    <footer class="main-footer footer-layout full">
+    <footer id="about" class="main-footer footer-layout full">
         <section class="about-me-container">
             <div class="about-me">
                 <img class="personal-img" src="img/personal-photo.jpg">
@@ -147,7 +147,7 @@
 
     <script src="https://kit.fontawesome.com/73ec7ec8db.js" crossorigin="anonymous"></script>
     <script src="js/vanillaEmojiPicker.js"></script>
-    <script src="js/joy.min.js"></script>
+    <!-- <script src="js/joy.min.js"></script> -->
     <script src="js\services\utils.service.js"></script>
     <script src="js\services\storage.service.js"></script>
     <script src="js\services\meme.service.js"></script>

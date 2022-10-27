@@ -42,26 +42,6 @@ function logThisIdx(idx) {
 
 }
 
-function onShowEditor() {
-    document.querySelector('.canvas-editor-container').classList.remove('hide')
-    document.querySelector('.gallery-container').classList.add('hide')
-    document.querySelector('.saved-memes').classList.add('hide')
-}
-
-function onShowGallery() {
-    document.querySelector('.canvas-editor-container').classList.add('hide')
-    document.querySelector('.gallery-container').classList.remove('hide')
-    document.querySelector('.saved-memes').classList.add('hide')
-}
-
-function onShowSavedMemes() {
-    renderSavedMemes()
-    document.querySelector('.canvas-editor-container').classList.add('hide')
-    document.querySelector('.gallery-container').classList.add('hide')
-    document.querySelector('.saved-memes').classList.remove('hide')
-
-}
-
 function onImgSelect(imgIdx) {
     setImg(imgIdx)
     renderMeme()
