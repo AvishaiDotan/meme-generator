@@ -76,6 +76,12 @@ p {
     border-radius: 4px;
 }
 
+.btn:hover,
+button:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
 
 
 
@@ -383,6 +389,7 @@ p {
     justify-content: center;
     margin-block-end: 30px;
 }
+
 .text-align-actions .movement-actions {
     display: flex;
 }
@@ -391,6 +398,24 @@ p {
     display: flex;
     justify-content: center;
 }
+
+.open-download-modal-action {
+    font-size: 3rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    border: 0;
+    background-color: var(--clr-secondary);
+    transition: 0.6s;
+}
+
+.open-download-modal-action:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
 
 
 
@@ -450,6 +475,54 @@ p {
     background-color: var(--clr-1);
     padding-block: 2rem;
     text-align: center;
+}
+
+.download-share-modal {
+    background-color: var(--clr1);
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Modal */
+.download-modal {
+    opacity: 0;
+    transition: 0.6s;
+}
+
+body.open-modal .download-modal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--clr0);
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+    transition: 0.6s;
+
+}
+body.open-modal .download-modal .modal-container {
+    border: 5px solid var(--clr-secondary);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--clr-1);
+    width: 50%;
+    height: 25%;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.download-modal:hover {
+    cursor: pointer;
 }
 
 
@@ -563,7 +636,7 @@ p {
         transition: 0.1s;
     }
 
-    .main-header nav ul > li a.open {
+    .main-header nav ul>li a.open {
         font-size: 2.1875rem;
         padding-block: 1.285em;
     }
@@ -580,6 +653,7 @@ p {
         font-size: xxx-large;
         color: var(--clr-primary);
     }
+
     .footer-layout .personal-img {
         width: 100px;
         height: 100px;
@@ -594,10 +668,3 @@ p {
     }
 
 }
-
-
-
-@media screen and (min-width: 500) {
-    
-
-

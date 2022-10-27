@@ -95,4 +95,14 @@ function onToggleModal() {
     elDropdown.classList.toggle('open')
 }
 
+function onToggleDownloadModal() {
+    document.body.classList.toggle('open-modal')
+}
+
+function onDownloadMeme(elLink) {
+    const meme = getCanvas()
+    const imgContent = meme.toDataURL('image/jpeg')// image/jpeg the default format
+    elLink.href = imgContent
+}
+
 

@@ -31,7 +31,8 @@
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
-            <button class="clean-btn dropdown-action" onclick="onToggleModal()"><i class="fa-solid fa-bars"></i></button>
+            <button class="clean-btn dropdown-action" onclick="onToggleModal()"><i
+                    class="fa-solid fa-bars"></i></button>
         </div>
     </header>
 
@@ -75,14 +76,18 @@
                 <div class="text-style-actions margin">
                     <label>
                         <img class="btn" src="icons/paint-board-and-brush.png">
-                        <input class="clean-color-input " oninput="onSetLineColor(this.value)" type="color" style="position: absolute; z-index: -500;;">
+                        <input class="clean-color-input " oninput="onSetLineColor(this.value)" type="color"
+                            style="position: absolute; z-index: -500;;">
                     </label>
                     <label>
                         <img class="btn" src="icons/text stroke.png">
-                        <input class="clean-color-input strok-color-picker" oninput="onSetStrokeColor(this.value)" type="color">
+                        <input class="clean-color-input strok-color-picker" oninput="onSetStrokeColor(this.value)"
+                            type="color">
                     </label>
-                    <button class="clean-btn" onclick="onSetFontSize(1)"><img class="btn" src="/icons/increase font - icon.png"></button>
-                    <button class="clean-btn" onclick="onSetFontSize(-1)"><img class="btn" src="icons/decrease font - icon.png"></button>
+                    <button class="clean-btn" onclick="onSetFontSize(1)"><img class="btn"
+                            src="/icons/increase font - icon.png"></button>
+                    <button class="clean-btn" onclick="onSetFontSize(-1)"><img class="btn"
+                            src="icons/decrease font - icon.png"></button>
                     <label class="font-picker-action">
                         <select class="btn" onchange="onSetFont(this.value)">
                             <option value="impact">Impact</option>
@@ -93,14 +98,19 @@
                 </div>
 
                 <div class="text-align-actions">
-                    <button class="btn" onclick="onSetLineAlignment('left')"><i class="fa-solid fa-align-left"></i></i></i></button>
-                    <button class="btn" onclick="onSetLineAlignment('center')"><i class="fa-solid fa-align-justify"></i></button>
-                    <button class="btn" onclick="onSetLineAlignment('right')"><i class="fa-solid fa-align-right"></i></i></button>
+                    <button class="btn" onclick="onSetLineAlignment('left')"><i
+                            class="fa-solid fa-align-left"></i></i></i></button>
+                    <button class="btn" onclick="onSetLineAlignment('center')"><i
+                            class="fa-solid fa-align-justify"></i></button>
+                    <button class="btn" onclick="onSetLineAlignment('right')"><i
+                            class="fa-solid fa-align-right"></i></i></button>
+                    <button class="btn" onclick="onDeleteLine()">Delete</button>
                     <!-- JoyStick Implementation -->
                     <!-- <div onclick="console.log(joy.GetPosX())" class="joystick"></div> -->
                     <div class="movement-actions">
                         <button class="btn" onclick="onMoveLine('-10')"><i class="fa-solid fa-arrow-up"></i></button>
-                        <button class="btn" onclick="onMoveLine('10')"><i class="fa-solid fa-arrow-down"></i></i></button>
+                        <button class="btn" onclick="onMoveLine('10')"><i
+                                class="fa-solid fa-arrow-down"></i></i></button>
                     </div>
 
                     <button class="btn" onclick="onSwitchLine()">
@@ -110,7 +120,11 @@
 
                 <div class="save-share-update-actions">
                     <button class="btn" onclick="onSaveMeme()">Save</button>
-                    <button class="btn" onclick="onDeleteLine()">Delete</button>
+                    <div>
+                        <button class="open-download-modal-action" onclick="onToggleDownloadModal();uploadImg()"><i
+                                class="fa-solid fa-file-arrow-down"></i></i></button>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -143,7 +157,17 @@
         </section>
     </footer>
 
-
+    <section class="download-modal full" onclick="onToggleDownloadModal()">
+        <div class="modal-container">
+            <h2 class="modal-header">Lorem ipsum dolor sit</h2>
+            <div class="download-modal-actions">
+                <button class="btn">
+                    <a href="#" onclick="onDownloadMeme(this)" download="your-canvas.jpg">Download</a>
+                </button>
+                <button class="share-container btn"></button>
+            </div>
+        </div>
+    </section>
 
 
     <script src="https://kit.fontawesome.com/73ec7ec8db.js" crossorigin="anonymous"></script>

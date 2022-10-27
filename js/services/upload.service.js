@@ -8,18 +8,13 @@ function uploadImg() {
   function onSuccess(uploadedImgUrl) {
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
     console.log(encodedUploadedImgUrl)
-    document.querySelector('.user-msg-modal p').innerHTML = `<a href="${uploadedImgUrl}"> 
-                                                              Your photo is available<strong> Here</strong></a>`
-    document.querySelector('.user-msg-modal').classList.add('show')
-    document.querySelector('.share-links').innerHTML = `
-      <li>
-          <a class="btn"
+    document.querySelector('.share-container').innerHTML = `
+    <a
               href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}"
               title="Share on Facebook" target="_blank" 
-              onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}');return false;">
+              onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}');return false;">Share
               <i class="facebook-share fa-brands fa-facebook-f"></i>
-          </a>
-      </li>`
+          </a>`
   }
 
   doUploadImg(imgDataUrl, onSuccess)
