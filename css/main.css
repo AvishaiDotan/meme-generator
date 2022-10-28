@@ -437,6 +437,13 @@ button:hover {
     width: 100%;
 }
 
+.save-share-update-actions .add-file-action::file-selector-button {
+    border:0px;
+    color: var(--clr-secondary);
+    background-color: transparent;
+    font-size: 1.2rem;
+}
+
 .open-download-modal-action {
     font-size: 3rem;
     position: absolute;
