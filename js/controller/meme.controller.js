@@ -126,7 +126,7 @@ function resizeMeme() {
 // Listeners Functions
 function onDown(ev) {
     const pos = _getEvPos(ev)
-    const itemIdx = getItemByPos(pos)
+    const itemIdx = getItemIdxByPos(pos)
     setSelectedItem(itemIdx)
     setLineAlignment('')
 
@@ -141,7 +141,7 @@ function onDown(ev) {
     gStartPos = pos
 
     renderMeme()
-    document.body.style.cursor = 'pointer'
+    document.body.style.cursor = 'grabbing'
     gCtx.lineDashOffset = getRandomIntInclusive(0, 4);
 }
 
@@ -294,7 +294,6 @@ function _getEvPos(ev) {
         y: ev.offsetY
     }
 
-    // CR EXPLAIN
     if (TOUCH_EVS.includes(ev.type)) {
         ev.preventDefault()
         ev = ev.changedTouches[0]
@@ -308,12 +307,18 @@ function _getEvPos(ev) {
     return pos
 }
 
-function _drawBorder(center, size, textWidth, yPos) {
+function _drawBorder(x, size, textWidth, y) {
     gCtx.beginPath();
     gCtx.strokeStyle = gBorderColor
     gCtx.setLineDash([4, 2])
-    gCtx.rect(center - size, yPos - size * 2, textWidth + size * 2, size * 2.5)
+    gCtx.rect(x - size, y - size * 2, textWidth + size * 2, size * 2.5)
     gCtx.stroke()
+    gCtx.closePath()
+
+    gCtx.beginPath();
+    gCtx.setLineDash([])
+    gCtx.arc(x + textWidth + size, y + size - 10, 5, 0, Math.PI * 2)
+    gCtx.fill()
 }
 
 function _getTextWidth(txt) {

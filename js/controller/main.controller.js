@@ -48,7 +48,6 @@ new EmojiPicker({
 
 
 // Implementation of JoyStick
-
 // var joy = new JoyStick('joyDiv',{
 //     // The ID of canvas element
 //     title: 'joystick',

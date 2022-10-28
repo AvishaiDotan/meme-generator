@@ -72,8 +72,6 @@ function onImgSelect(imgIdx) {
     onShowEditor()
 }
 
-
-
 function onGenerateRandomMeme() {
     generateRandomMeme()
     renderMeme()

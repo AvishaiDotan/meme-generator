@@ -135,12 +135,26 @@ function getSavedMemes() {
     return loadFromStorage(MEME_KEY)
 }
 
-function getItemByPos(pos) {
+function getItemIdxByPos(pos) {
     return gMeme.lines.findIndex((line) => {
             return ((pos.x + 20) > line.pos.x && (pos.x - 20) < (line.pos.x + line.size.width) &&
             (pos.y + 20) > line.pos.y - line.size.height && (pos.y - 20) < (line.pos.y))
     })
+    // for (let i = 0; i < gMeme.lines.length; i++) {
+
+    //     const line = gMeme.lines[i]
+    //     const isOnCorner = ((pos.x > (line.pos.x + line.size.width + 10)) &&
+    //                         (pos.x < (line.pos.x + line.size.width + 20)) &&
+    //                         (pos.y > line.pos.y - 60 && pos.y < line.pos.y + 60))
+
+    //     const isOnLine = ((pos.x + 20) > line.pos.x &&
+    //                     (pos.x - 20) < (line.pos.x + line.size.width) 
+    //                     && (pos.y + 20) > line.pos.y - line.size.height 
+    //                     && (pos.y - 20) < (line.pos.y))
+
+    //     return {idx: i, prop: {isOnLine, isOnCorner}}
 }
+
 
 function getLineByIdx(idx) {
     return gMeme.lines[idx]

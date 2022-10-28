@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
-    <link rel="stylesheet" href="css\main.css">
+    <link rel="stylesheet" href="css/mobile-first.css">
 
     <datalist id="search-tags">
         <option value="prime minister">
@@ -82,7 +82,7 @@
                             type="color">
                     </label>
                     <button class="clean-btn" onclick="onSetFontSize(1)"><img class="btn"
-                            src="/icons/increase font - icon.png"></button>
+                            src="icons/increase font - icon.png"></button>
                     <button class="clean-btn" onclick="onSetFontSize(-1)"><img class="btn"
                             src="icons/decrease font - icon.png"></button>
                     <label class="font-picker-action">
@@ -117,7 +117,7 @@
 
                 <div class="save-share-update-actions">
                     <button class="btn" onclick="onSaveMeme()">Save</button>
-                    <input type="file" class="btn" oninput="onUploadImg(event)">
+                    <input type="file" class="add-file-action btn" oninput="onUploadImg(event)">
                     <div>
                         <button class="open-download-modal-action" onclick="onToggleDownloadModal();uploadImg()">
                             <i class="fa-solid fa-file-arrow-down"></i>
