@@ -22,12 +22,12 @@
 
     <header class="main-header main-layout full">
         <div class="header-layout">
-            <h1 onclick="onShowGallery()" class="header-logo clean-text">Meme Generator<span class="logo-dot">.</span>
+            <h1 onclick="onDisplaySection('.gallery-container')" class="header-logo clean-text">Meme Generator<span class="logo-dot">.</span>
             </h1>
             <nav>
                 <ul class="clean-list dropdown">
-                    <li><a onclick="onShowSavedMemes()">Saved</a></li>
-                    <li><a onclick="onShowEditor()">Editor</a></li>
+                    <li><a onclick="onDisplaySection('.saved-memes-container')">Saved</a></li>
+                    <li><a onclick="onDisplaySection('.canvas-editor-container')">Editor</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
@@ -42,7 +42,7 @@
             <div class="search-bar">
                 <label>
                     <input oninput="onSetFilterBy(this.value)" list="search-tags" 
-                    type="text" class="text-input" placeholder="Search For Meme Category">
+                    type="text" class="text-input" placeholder="Search For Meme">
                 </label>
                 <div class="keywords"></div>
                 <button class="clean-btn random-meme-action" onclick="onGenerateRandomMeme()">Random Meme</button>

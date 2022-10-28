@@ -16,23 +16,33 @@ function onDownloadImg(elLink) {
     elLink.href = imgContent
 }
 
-function onShowEditor() {
-    document.querySelector('.canvas-editor-container').classList.remove('hide')
-    document.querySelector('.gallery-container').classList.add('hide')
-    document.querySelector('.saved-memes-container').classList.add('hide')
-}
+// function onShowEditor() {
+//     document.querySelector('.canvas-editor-container').classList.remove('hide')
+//     document.querySelector('.gallery-container').classList.add('hide')
+//     document.querySelector('.saved-memes-container').classList.add('hide')
+// }
 
-function onShowGallery() {
-    document.querySelector('.canvas-editor-container').classList.add('hide')
-    document.querySelector('.gallery-container').classList.remove('hide')
-    document.querySelector('.saved-memes-container').classList.add('hide')
-}
+// function onShowGallery() {
+//     document.querySelector('.canvas-editor-container').classList.add('hide')
+//     document.querySelector('.gallery-container').classList.remove('hide')
+//     document.querySelector('.saved-memes-container').classList.add('hide')
+// }
 
-function onShowSavedMemes() {
-    renderSavedMemes()
-    document.querySelector('.canvas-editor-container').classList.add('hide')
-    document.querySelector('.gallery-container').classList.add('hide')
-    document.querySelector('.saved-memes-container').classList.remove('hide')
+// function onShowSavedMemes() {
+//     renderSavedMemes()
+//     document.querySelector('.canvas-editor-container').classList.add('hide')
+//     document.querySelector('.gallery-container').classList.add('hide')
+//     document.querySelector('.saved-memes-container').classList.remove('hide')
+// }
+
+function onDisplaySection(sectionSelector) {
+    const sections = ['.canvas-editor-container', '.gallery-container', '.saved-memes-container']
+    sections.forEach(section => {
+
+        if (section === sectionSelector) document.querySelector(section).classList.remove('hide')
+        else document.querySelector(section).classList.add('hide')
+
+    })
 }
 
 
