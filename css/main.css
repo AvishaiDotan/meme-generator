@@ -30,7 +30,6 @@
 
 
 
-
 /* BASICS  */
 html {
     color: var(--clr2);
@@ -111,38 +110,7 @@ button:hover {
 
 
 
-
-
 /* Helpers */
-/* Flex-Helper */
-.flex {
-    display: flex;
-}
-
-.flex.space-between {
-    justify-content: space-between;
-}
-
-.flex.align-center {
-    align-items: center;
-}
-
-.flex.flex-column {
-    flex-direction: column;
-}
-
-.flex.justify-end {
-    justify-content: flex-end;
-}
-
-.flex.justify-center {
-    justify-content: center;
-}
-
-.flex.wrap {
-    flex-wrap: wrap;
-}
-
 /* List-Helper */
 .clean-list {
     padding: 0;
@@ -182,7 +150,6 @@ button:hover {
 
 
 /* Components */
-
 /* Main Container */
 .main-container {
     margin-block-end: 100px;
@@ -281,6 +248,7 @@ button:hover {
     width: 2rem;
 }
 
+
 /* Search Bar */
 .search-bar {
     display: grid;
@@ -290,9 +258,9 @@ button:hover {
 
 .search-bar input {
     color: white;
-    font-family: 'Fasthand-Regular';
+    font-family: 'impact';
     margin-inline-start: 30px;
-    font-size: 2rem;
+    font-size: 1rem;
     height: 100%;
     background-color: transparent;
 }
@@ -303,8 +271,11 @@ button:hover {
 }
 
 .search-bar .random-meme-action {
+    border-inline-start: 2px solid var(--clr-secondary-strong);
     font-size: 1.1875rem;
     font-family: impact;
+    padding: 10px;
+
 }
 
 .search-bar .random-meme-action:hover {
@@ -332,7 +303,17 @@ button:hover {
     color: var(--clr2);
     font-size: 2rem;
     font-weight: 600;
-    font-family: Montserrat-Regular;
+    text-shadow: -2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0px 2px 0 #000,
+        2px 0px 0 #000,
+        0px -2px 0 #000,
+        -2px 0px 0 #000;
+    font-family: impact;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .search-bar span:hover {
@@ -343,6 +324,7 @@ button:hover {
 .search-bar span:hover {
     cursor: pointer;
 }
+
 
 
 /* Gallery */
@@ -357,7 +339,7 @@ button:hover {
 .saved-memes-container .saved-memes {
     display: grid;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 280px));
     gap: 10px;
     padding: 60px;
     min-height: 1300px;
@@ -387,6 +369,7 @@ button:hover {
     display: none;
 }
 
+
 /* Saved Memes Gallery */
 .saved-memes {
     display: flex;
@@ -396,8 +379,6 @@ button:hover {
     display: none;
 }
 
-
-/* TODO */
 
 /* Canvas Editor Actions */
 .editor-container .text-input-actions .add-text-btn {
@@ -417,6 +398,7 @@ button:hover {
     top: 0;
     right: 0;
 }
+
 
 /* Text Actions */
 .text-style-actions {
@@ -451,6 +433,10 @@ button:hover {
     justify-content: center;
 }
 
+.save-share-update-actions .add-file-action {
+    width: 100%;
+}
+
 .open-download-modal-action {
     font-size: 3rem;
     position: absolute;
@@ -468,12 +454,10 @@ button:hover {
     filter: brightness(90%);
 }
 
-
-
-
 .editor-container .demo {
     display: none;
 }
+
 
 /* Footer */
 .footer-layout {
@@ -539,6 +523,7 @@ button:hover {
     height: 100vh;
 }
 
+
 /* Modal */
 .download-modal {
     opacity: 0;
@@ -558,6 +543,7 @@ body.open-modal .download-modal {
     display: block;
 
 }
+
 body.open-modal .download-modal .modal-container {
     border: 5px solid var(--clr-secondary);
     position: absolute;
@@ -578,13 +564,6 @@ body.open-modal .download-modal .modal-container {
 .download-modal:hover {
     cursor: pointer;
 }
-
-
-
-
-
-
-
 
 
 
@@ -738,6 +717,11 @@ body.open-modal .download-modal .modal-container {
     .open-download-modal-action {
         bottom: -85px;
         border-radius: 50px;
+    }
+
+    .gallery-container .gallery,
+    .saved-memes-container .saved-memes {
+        min-height: auto;
     }
 
 }

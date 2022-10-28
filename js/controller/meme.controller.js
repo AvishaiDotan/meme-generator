@@ -133,6 +133,7 @@ function onDown(ev) {
     // There No Selected Line
     if (itemIdx < 0) {
         renderMeme()
+        updateTextInputBar('')
         return
     }
 
@@ -200,8 +201,9 @@ function onAddEmoji(elEmoji) {
         return
     }
 
-    
     addEmoji(emojiStr)
+    updateTextInputBar(emojiStr)
+    
     renderMeme()
 }
 

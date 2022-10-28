@@ -30,6 +30,7 @@
 
 
 
+
 /* BASICS  */
 html {
     color: var(--clr2);
@@ -110,7 +111,38 @@ button:hover {
 
 
 
+
+
 /* Helpers */
+/* Flex-Helper */
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.flex-column {
+    flex-direction: column;
+}
+
+.flex.justify-end {
+    justify-content: flex-end;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
 /* List-Helper */
 .clean-list {
     padding: 0;
@@ -150,6 +182,7 @@ button:hover {
 
 
 /* Components */
+
 /* Main Container */
 .main-container {
     margin-block-end: 100px;
@@ -248,7 +281,6 @@ button:hover {
     width: 2rem;
 }
 
-
 /* Search Bar */
 .search-bar {
     display: grid;
@@ -313,7 +345,6 @@ button:hover {
 }
 
 
-
 /* Gallery */
 .gallery-container,
 .saved-memes-container {
@@ -356,7 +387,6 @@ button:hover {
     display: none;
 }
 
-
 /* Saved Memes Gallery */
 .saved-memes {
     display: flex;
@@ -366,6 +396,8 @@ button:hover {
     display: none;
 }
 
+
+/* TODO */
 
 /* Canvas Editor Actions */
 .editor-container .text-input-actions .add-text-btn {
@@ -385,7 +417,6 @@ button:hover {
     top: 0;
     right: 0;
 }
-
 
 /* Text Actions */
 .text-style-actions {
@@ -420,10 +451,6 @@ button:hover {
     justify-content: center;
 }
 
-.save-share-update-actions .add-file-action {
-    width: 100%;
-}
-
 .open-download-modal-action {
     font-size: 3rem;
     position: absolute;
@@ -441,10 +468,12 @@ button:hover {
     filter: brightness(90%);
 }
 
+
+
+
 .editor-container .demo {
     display: none;
 }
-
 
 /* Footer */
 .footer-layout {
@@ -510,7 +539,6 @@ button:hover {
     height: 100vh;
 }
 
-
 /* Modal */
 .download-modal {
     opacity: 0;
@@ -550,6 +578,13 @@ body.open-modal .download-modal .modal-container {
 .download-modal:hover {
     cursor: pointer;
 }
+
+
+
+
+
+
+
 
 
 

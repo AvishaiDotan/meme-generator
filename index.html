@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
-    <link rel="stylesheet" href="css/mobile-first.css">
+    <link rel="stylesheet" href="css/mobile.css">
 
     <datalist id="search-tags">
         <option value="prime minister">
@@ -42,7 +42,7 @@
             <div class="search-bar">
                 <label>
                     <input oninput="onSetFilterBy(this.value)" list="search-tags" 
-                    type="text" class="text-input" placeholder="Search">
+                    type="text" class="text-input" placeholder="Search For Meme Category">
                 </label>
                 <div class="keywords"></div>
                 <button class="clean-btn random-meme-action" onclick="onGenerateRandomMeme()">Random Meme</button>

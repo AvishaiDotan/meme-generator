@@ -52,6 +52,7 @@ function addEmoji(emoji) {
             pos: {x: getRandomIntInclusive(150, 350), y: getRandomIntInclusive(150, 350)},
             isDragged: false,
         })
+    
 }
 
 function switchLine() {
