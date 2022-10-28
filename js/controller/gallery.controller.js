@@ -63,17 +63,18 @@ function onEditSavedMeme(idx) {
 
     setMeme(memeData)
     renderMeme()
-    onShowEditor()
+    
+    onDisplaySection('.canvas-editor-container')
 }
 
 function onImgSelect(imgIdx) {
     setImg(imgIdx)
     renderMeme()
-    onShowEditor()
+    onDisplaySection('.canvas-editor-container')
 }
 
 function onGenerateRandomMeme() {
     generateRandomMeme()
     renderMeme()
-    onShowEditor()
+    onDisplaySection('.canvas-editor-container')
 }
