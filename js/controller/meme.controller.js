@@ -216,6 +216,24 @@ function onUploadImg(ev) {
     loadImageFromInput(ev, renderMeme)
 }
 
+function onMoveLine(diff) {
+    moveLine(diff)
+    renderMeme()
+}
+
+function onAddLine() {
+    const txt = document.querySelector('[data-action="user-txt-input"]').value
+
+    if (!txt) return
+
+    addLine(txt)
+    renderMeme()
+}
+
+function updateTextInputBar(txt) {
+    const elInput = document.querySelector('[data-action="user-txt-input"]')
+    elInput.value = txt
+}
 
 
 
@@ -233,14 +251,7 @@ function onSetLineTxt(txt) {
     renderMeme()
 }
 
-function onAddLine() {
-    const txt = document.querySelector('[data-action="user-txt-input"]').value
 
-    if (!txt) return
-
-    addLine(txt)
-    renderMeme()
-}
 
 function onSetLineColor(color) {
     setLineColor(color)
@@ -257,11 +268,6 @@ function onSetFont(font) {
     renderMeme()
 }
 
-function updateTextInputBar(txt) {
-    const elInput = document.querySelector('[data-action="user-txt-input"]')
-    elInput.value = txt
-}
-
 function onSetLineAlignment(pos) {
     setLineAlignment(pos)
     renderMeme()
@@ -272,9 +278,9 @@ function onSetStrokeColor(color) {
     renderMeme()
 }
 
-function onMoveLine(diff) {
-    moveLine(diff)
-    renderMeme()
+function setCanvasDirection() {
+    const direction = getDirection()
+    gCtx.direction = direction
 }
 
 

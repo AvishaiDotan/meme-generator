@@ -115,4 +115,12 @@ function onDownloadMeme(elLink) {
     elLink.href = imgContent
 }
 
+function onSetLang(lang) {
+    setLang(lang)
+    changeDisplayDirection()
+    // setCanvasDirection()
+    // renderMeme()
+    doTrans()
+}
+
 
