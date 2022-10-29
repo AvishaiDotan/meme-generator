@@ -218,7 +218,7 @@ button:hover {
     cursor: pointer;
 }
 
-.main-header nav ul>li a.open {
+.main-header nav ul>li a.selected {
     color: var(--clr-primary);
     box-shadow: inset 0px -4px 0px var(--clr-primary);
     cursor: pointer;
@@ -717,6 +717,7 @@ body.open-modal .download-modal .modal-container {
     .main-header nav ul>li a.open {
         font-size: 2.1875rem;
         padding-block: 1.285em;
+        color: var(--clr-2);
     }
 
     .main-header .dropdown-action {
