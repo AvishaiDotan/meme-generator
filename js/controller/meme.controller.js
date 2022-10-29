@@ -147,10 +147,8 @@ function onMove(ev) {
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
 
-    let newX = line.pos.x + dx
+    const newX = line.pos.x + dx
     const newY = line.pos.y + dy
-
-    newX = (getDirection() === 'rtl') ? gElCanvas.width - newX : newX
 
     setLinePos(gCurrLineIdx, newX, newY)
     
