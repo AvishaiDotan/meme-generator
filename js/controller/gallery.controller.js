@@ -25,8 +25,7 @@ function renderKeywords() {
         if (window.innerWidth < 1200 && i === 4) break
 
         strHTML += `<span style="font-size: ${keywordsObj[keywords[i]] -5}px;"
-                          onclick="onSetFilterBy(this.innerText);onAddEntry('${keywords[i]}')">${keywords[i]}
-                    </span>`
+                          onclick="onSetFilterBy(this.innerText.toLowerCase());onAddEntry('${keywords[i]}')">${keywords[i]}</span>`
     }
 
     document.querySelector('.keywords').innerHTML = strHTML

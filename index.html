@@ -18,7 +18,7 @@
     </datalist>
 </head>
 
-<body class="main-layout" onload="onInit()">
+<body id="body-id" class="main-layout" onload="onInit()">
 
     <header class="main-header main-layout full">
         <div class="header-layout">
@@ -26,9 +26,9 @@
             </h1>
             <nav>
                 <ul class="clean-list dropdown">
-                    <li><a onclick="onDisplaySection('.saved-memes-container')">Saved</a></li>
-                    <li><a onclick="onDisplaySection('.canvas-editor-container')">Editor</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a onclick="onDisplaySection('.saved-memes-container')" href="#body-id">Saved</a></li>
+                    <li><a onclick="onDisplaySection('.canvas-editor-container')" href="#body-id">Editor</a></li>
+                    <li><a onclick="onToggleModal()" href="#about">About</a></li>
                 </ul>
             </nav>
             <button class="clean-btn dropdown-action" onclick="onToggleModal()"><i
@@ -36,7 +36,7 @@
         </div>
     </header>
 
-    <main class="main-container">
+    <main  class="main-container">
         
         <section class="gallery-container">
             <div class="search-bar">

@@ -40,7 +40,6 @@ function addEntry(keyword) {
 function getImgs() {
     if (gFilter) {
         return gMemeImgs.filter(({tags}) => {
-            console.log(tags.includes(gFilter));
             return tags.includes(gFilter)
         } )
     }

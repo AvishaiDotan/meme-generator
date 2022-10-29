@@ -39,7 +39,8 @@ function renderMeme() {
 }
 
 function drawLine(lines) {
-    const yPositions = [100, 400, 200, 300]
+    const canvasSize = _getCanvasSize()
+    const yPositions = _getYPositionsByCanvasSize(canvasSize)
 
     const selectedIdx = getSelectedLineIdx()
     lines.forEach((line, idx) => {
@@ -65,8 +66,8 @@ function drawLine(lines) {
             y = pos.y
         } else {
             // Default Init Centering
-            x = _getCenter(textWidth)
-            y = yPositions[idx] || getRandomIntInclusive(200, 300)
+            x = _getXCenter(textWidth)
+            y = yPositions[idx] || _getYCenter()
         }
         
 
@@ -106,15 +107,7 @@ function addTouchListeners() {
 
 function resizeMeme() {
     const windowWidth = window.innerWidth
-    let canvasSize
-
-    if (windowWidth > 950) {
-        canvasSize = 500
-    } else if (windowWidth <= 950 && windowWidth > 720) {
-        canvasSize = 350
-    } else if (windowWidth <= 720) {
-        canvasSize = windowWidth - 120
-    } 
+    let canvasSize  = _getCanvasSize()
 
     gElCanvas.width = canvasSize
     gElCanvas.height = canvasSize
@@ -189,7 +182,8 @@ function onSaveMeme() {
     renderMeme()
     setTimeout(() => {
         saveMeme()
-    }, 1000) 
+        renderSavedMemes()
+    }, 500) 
 }
 
 function onAddEmoji(elEmoji) {
@@ -331,7 +325,7 @@ function _setFont(size, font) {
     gCtx.font = `${size * 2}px ${font}`;
 }
 
-function _getCenter(textWidth) {
+function _getXCenter(textWidth) {
     return (gElCanvas.width / 2) - (textWidth / 2)
 }
 
@@ -348,12 +342,37 @@ function _getValidSize(size ,txt, font) {
 function _getPosByAlign(align, textWidth) {
     switch (align) {
         case 'center': 
-            return _getCenter(textWidth)
+            return _getXCenter(textWidth)
         case 'right': 
             return gElCanvas.width - textWidth
         case 'left':
             return 0
     }
+}
+
+function _getCanvasSize() {
+
+
+    if (window.innerWidth > 950) {
+        return  500
+    } else if (window.innerWidth <= 950 && window.innerWidth > 720) {
+        return 350
+    } else if (window.innerWidth <= 720) {
+        return window.innerWidth - 120
+    } 
+
+}
+
+function _getYPositionsByCanvasSize(canvasSize) {
+    
+    const quarter = canvasSize / 4
+    const margin = quarter / 4
+    const positions = [quarter - margin, quarter*4 - margin, quarter*2 - margin, quarter*3 - margin]
+    return positions
+}
+
+function _getYCenter() {
+    return _getCanvasSize() / 2
 }
 
 

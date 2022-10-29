@@ -17,6 +17,7 @@ function onDownloadImg(elLink) {
 }
 
 function onDisplaySection(sectionSelector) {
+
     const sections = ['.canvas-editor-container', '.gallery-container', '.saved-memes-container']
     sections.forEach(section => {
 
@@ -24,6 +25,7 @@ function onDisplaySection(sectionSelector) {
         else document.querySelector(section).classList.add('hide')
 
     })
+    onCloseModal()
 }
 
 
@@ -84,6 +86,22 @@ function onToggleModal() {
     const elDropdown = document.querySelector('.dropdown')
     elDropdown.style.transition = transitionB
     elDropdown.classList.toggle('open')
+}
+
+function onCloseModal() {
+    const elDropdown = document.querySelector('.dropdown')
+    if (!elDropdown.classList.contains('open')) return
+    
+    const elA = document.querySelectorAll('.main-header nav ul > li a')
+
+    const transitionA =  (elA[0].classList.contains(open)) ? '.3s' : '0.9s'
+    const transitionB =  (elA[0].classList.contains(open)) ? '0.9s' : '0.3s'
+
+    elA.forEach(a => {a.classList.remove('open'); a.style.transition = transitionA})
+    
+    
+    elDropdown.style.transition = transitionB
+    elDropdown.classList.remove('open')
 }
 
 function onToggleDownloadModal() {
