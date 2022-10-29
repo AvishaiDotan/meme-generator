@@ -70,7 +70,6 @@ function drawLine(lines) {
             y = yPositions[idx] || _getYCenter()
         }
         
-
         if (idx === selectedIdx) {
             _drawBorder(x, fontSize, textWidth, y)
             updateTextInputBar(txt)
@@ -80,7 +79,7 @@ function drawLine(lines) {
         gCtx.lineWidth = 3;
         gCtx.fillStyle = color
         gCtx.strokeStyle = strokeColor
-
+   
         gCtx.fillText(txt, x, y);
         gCtx.strokeText(txt, x, y);
 
@@ -148,8 +147,11 @@ function onMove(ev) {
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
 
-    const newX = line.pos.x + dx
+    let newX = line.pos.x + dx
     const newY = line.pos.y + dy
+
+    newX = (getDirection() === 'rtl') ? gElCanvas.width - newX : newX
+
     setLinePos(gCurrLineIdx, newX, newY)
     
     gStartPos = pos

@@ -218,6 +218,12 @@ button:hover {
     cursor: pointer;
 }
 
+.main-header nav ul>li a.open {
+    color: var(--clr-primary);
+    box-shadow: inset 0px -4px 0px var(--clr-primary);
+    cursor: pointer;
+}
+
 .main-header .dropdown-action {
     display: none;
 }

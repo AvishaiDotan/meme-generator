@@ -40,7 +40,7 @@ const gTrans = {
     },
     'avishai_dotan': {
         en: 'Avishai Dotan',
-        he: 'שמור'
+        he: 'אבישי דותן'
     },
     'lorem10': {
         en: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, hic.',

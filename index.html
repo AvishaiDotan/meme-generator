@@ -31,9 +31,9 @@
             </h1>
             <nav>
                 <ul class="clean-list dropdown">
-                    <li><a onclick="onDisplaySection('.saved-memes-container')" href="#body-id" data-trans="saved">Saved</a></li>
-                    <li><a onclick="onDisplaySection('.canvas-editor-container')" href="#body-id" data-trans="editor">Editor</a></li>
-                    <li><a onclick="onToggleModal()" href="#about" data-trans="about">About</a></li>
+                    <li><a onclick="onDisplaySection('.saved-memes-container', this);onSelectSection(this)" href="#body-id" data-trans="saved">Saved</a></li>
+                    <li><a onclick="onDisplaySection('.canvas-editor-container', this);onSelectSection(this)" href="#body-id" data-trans="editor">Editor</a></li>
+                    <li><a onclick="onToggleModal();onSelectSection(this)" href="#about" data-trans="about">About</a></li>
                 </ul>
             </nav>
             <button class="clean-btn dropdown-action" onclick="onToggleModal()"><i

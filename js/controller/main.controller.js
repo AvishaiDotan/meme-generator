@@ -28,6 +28,12 @@ function onDisplaySection(sectionSelector) {
     onCloseModal()
 }
 
+function onSelectSection(elNavLink) {
+    const elNavLinks = document.querySelectorAll('.main-header nav ul>li a')
+    elNavLinks.forEach(elLink => elLink.classList.remove('open'))
+    elNavLink.classList.add('open')
+}
+
 
 new EmojiPicker({
     trigger: [
