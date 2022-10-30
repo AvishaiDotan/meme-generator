@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,11 +18,10 @@
 </head>
 
 <body id="body-id" class="main-layout" onload="onInit()">
-
     <header class="main-header main-layout full">
         <select class='btn lang-select' onchange="onSetLang(this.value)">
             <option class="btn" value="en">En</option>
-            <option class="btn" value="he">He</option>
+            <option class="btn" value="he">עב</option>
         </select>
         <div class="header-layout">
             <!-- TOdo -->
@@ -47,11 +45,12 @@
             <div class="search-bar">
                 <label>
                     <input oninput="onSetFilterBy(this.value)" list="search-tags" 
-                    type="text" class="text-input" data-trans="search_for_meme" placeholder="Search For Meme">
+                    type="search" class="text-input" data-trans="search_for_meme" placeholder="🔍Search">
                 </label>
                 <div class="keywords"></div>
                 <button class="clean-btn random-meme-action" onclick="onGenerateRandomMeme()" data-trans="random_meme">Random Meme</button>
             </div>
+            <div class="line"></div>
             <div class="gallery"></div>
         </section>
 

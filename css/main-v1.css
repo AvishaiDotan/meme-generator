@@ -34,7 +34,7 @@
 /* BASICS  */
 html {
     color: var(--clr2);
-    font-family: Montserrat-Regular, sans-serif;
+    font-family: rubik-black, sans-serif;
 }
 
 body {
@@ -222,7 +222,7 @@ button:hover {
 .main-header nav ul>li a {
     display: inline-block;
 
-    font-family: Montserrat-Regular;
+    font-family: rubik-black;
     font-size: 2.1875rem;
     padding-inline: 0.342em;
     /* border-inline-start: 0.05em solid var(--clr0); */
@@ -332,7 +332,7 @@ button:hover {
     color: var(--clr2);
     font-size: 2rem;
     font-weight: 600;
-    font-family: Montserrat-Regular;
+    font-family: rubik-black;
 }
 
 .search-bar span:hover {
@@ -696,7 +696,7 @@ body.open-modal .download-modal .modal-container {
 
     .main-header nav ul>li a {
         display: inline-block;
-        font-family: Montserrat-Regular;
+        font-family: rubik-black;
         font-size: 0;
         padding-inline: 0.342em;
         border-inline-start: 0.05em solid var(--clr0);
