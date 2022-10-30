@@ -353,12 +353,11 @@ button:hover {
     grid-template-columns: repeat(auto-fit, minmax(100px, 280px));
     gap: 10px;
     padding: 60px;
-    min-height: 1300px;
 }
 
 .gallery-container .gallery img,
 .saved-memes-container .saved-memes img {
-    border-radius: 2px;
+    border-radius: 6px;
     width: 100%;
     transition: 0.6s all;
     max-width: 300px;
