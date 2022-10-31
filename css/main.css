@@ -481,7 +481,8 @@ button:hover {
 
 .open-download-modal-action:hover {
     cursor: pointer;
-    background-color: var(--clr-primary);
+    background-color: transparent;
+    outline: 0.5px solid var(--clr-secondary);
 }
 
 .editor-container .demo {

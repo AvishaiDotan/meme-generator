@@ -319,7 +319,6 @@ function _drawBorder(x, size, textWidth, y) {
 
     gCtx.beginPath();
     gCtx.setLineDash([])
-    gCtx.arc(x + textWidth + size, y + size - 10, 5, 0, Math.PI * 2)
     gCtx.fill()
 }
 
