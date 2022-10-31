@@ -224,7 +224,6 @@ button:hover {
 }
 
 .main-header nav ul>li a:hover {
-    background-color: var(--clr-mark);
     box-shadow: inset 0px -4px 0px var(--clr-secondary);
     cursor: pointer;
 }
