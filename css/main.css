@@ -68,7 +68,7 @@ p {
     flex-grow: 1;
     background-color: var(--clr2);
     height: 2rem;
-    border: 0.2rem solid var(--clr-secondary);
+    border: 0.5px solid var(--clr-secondary);
     border-radius: 4px;
 }
 
@@ -235,6 +235,10 @@ button:hover {
     cursor: pointer;
 }
 
+.main-header nav ul>li a.selected:hover {
+    color: var(--clr-secondary);
+}
+
 .main-header .dropdown-action {
     display: none;
 }
@@ -289,6 +293,8 @@ button:hover {
     height: 100%;
     border: 0;
     border-radius: 25px;
+    min-width: 200px;
+    text-indent: 20px;
 }
 
 .search-bar input:focus {
@@ -443,7 +449,7 @@ button:hover {
     justify-content: center;
 }
 
-.save-share-update-actions > *:not(:last-child) {
+.save-share-update-actions > *:first-child {
     margin-inline: 5px;
 }
 
@@ -467,7 +473,7 @@ button:hover {
     margin-inline-start: 5%;
     margin-inline-end: 5%;
     padding: 20px;
-    border: 0.5px solid var(--clr-secondary);
+    border: 0;
     background-color: transparent;
     transition: 0.6s;
     border-radius: 2em;
@@ -636,6 +642,18 @@ body.open-modal .download-modal .modal-container {
     .saved-memes-container {
         border: 0ch;
     }
+    .search-bar .keywords {
+        display: none;
+    }
+    .search-bar {
+        grid-template-columns: 1fr 1fr;
+    }
+    .search-bar input {
+        width: 100%;
+    }
+    .btn:hover, button:hover {
+        background-color: transparent;
+    }
 
 }
 
@@ -669,7 +687,7 @@ body.open-modal .download-modal .modal-container {
         z-index: 10;
         position: fixed;
         width: 100%;
-        top: 122px;
+        top: 116px;
         background-color: var(--clr-primary);
         display: flex;
         flex-direction: column;
@@ -765,10 +783,6 @@ body.open-modal .download-modal .modal-container {
 
     .gallery-container .search-bar {
         display: flex;
-    }
-
-    .search-bar .keywords {
-        display: none;
     }
 
     .search-bar label {

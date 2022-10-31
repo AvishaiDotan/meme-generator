@@ -32,15 +32,17 @@ const gMemeImgs = [
 ]
 
 function addEntry(keyword) {
-    gKeywordSearchCountMap[keyword]++
+    const maxEntry = 37
+    if (gKeywordSearchCountMap[keyword] < maxEntry) gKeywordSearchCountMap[keyword]++
 }
 
 
 // Getters
 function getImgs() {
+
     if (gFilter) {
         return gMemeImgs.filter(({tags}) => {
-            return tags.includes(gFilter)
+            return tags.some(tag => (tag.includes(gFilter)))
         } )
     }
     return gMemeImgs
