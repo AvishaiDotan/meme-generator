@@ -50,6 +50,7 @@ function loadImageFromInput(ev, onImageReady) {
     img.src = event.target.result 
     setUploadedImage(event.target.result)
     img.onload = onImageReady.bind(null, img)
+    flashMsg('Image loaded')
   }
 
   reader.readAsDataURL(ev.target.files[0])

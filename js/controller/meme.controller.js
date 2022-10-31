@@ -183,6 +183,7 @@ function onSaveMeme() {
     setTimeout(() => {
         saveMeme()
         renderSavedMemes()
+        flashMsg('Meme Saved')
     }, 500) 
 }
 
@@ -197,13 +198,14 @@ function onAddEmoji(elEmoji) {
 
     addEmoji(emojiStr)
     updateTextInputBar(emojiStr)
-    
+    flashMsg('Emoji added')
     renderMeme()
 }
 
 function onDeleteLine() {
     deleteLine()
     updateTextInputBar('')
+    flashMsg('Line deleted')
     renderMeme()
 }
 
@@ -214,6 +216,7 @@ function onResizeMeme() {
 
 function onUploadImg(ev) {
     loadImageFromInput(ev, renderMeme)
+    
 }
 
 function onMoveLine(diff) {
@@ -228,6 +231,7 @@ function onAddLine() {
 
     addLine(txt)
     renderMeme()
+    flashMsg('Line added')
 }
 
 function updateTextInputBar(txt) {
@@ -255,21 +259,25 @@ function onSetLineTxt(txt) {
 
 function onSetLineColor(color) {
     setLineColor(color)
+    flashMsg('Color Changed')
     renderMeme()
 }
 
 function onSetFontSize(diff) {
     setFontSize(diff)
+    
     renderMeme()
 }
 
 function onSetFont(font) {
     setFont(font)
+    flashMsg('Font changed')
     renderMeme()
 }
 
 function onSetLineAlignment(pos) {
     setLineAlignment(pos)
+    flashMsg(`aligned ${pos}`)
     renderMeme()
 }
 
