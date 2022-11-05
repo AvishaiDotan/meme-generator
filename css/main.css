@@ -74,10 +74,9 @@ p {
 
 .btn {
     height: 2rem;
-    background-color: var(--clr2);
+    background-color: transparent;
     height: 2rem;
-    border: 0.5px solid var(--clr-secondary);
-    border-radius: 4px;
+    border: 0;
 }
 
 .btn:hover,
@@ -275,6 +274,7 @@ button:hover {
 
 .canvas-editor-container .editor-container img {
     width: 2rem;
+    height: 100%;
 }
 
 
@@ -406,16 +406,24 @@ button:hover {
 
 
 /* Canvas Editor Actions */
-.editor-container .text-input-actions .text-input.margin {
-    margin-block-end: 30px;
+.text-input-actions {
+    background-color: var(--clr2);
+    border-radius: 2em;
+    margin-block-end: 50px;
+}
+
+.text-input-actions input {
+    border: 0;
+    background-color: transparent;
 }
 
 .text-input-actions label {
     display: flex;
 }
 
-.text-input-actions label > *:nth-child(2) {
-    margin-inline: 10px;
+.text-input-actions label > * {
+    border: 0;
+    background-color: transparent;
 }
 
 
@@ -423,6 +431,9 @@ button:hover {
 .text-style-actions {
     display: flex;
     justify-content: center;
+    background-color: var(--clr2);
+    border-radius: 2em;
+    margin-block-end: 50px;
 }
 
 .text-style-actions > *:not(:last-child) {
@@ -430,7 +441,8 @@ button:hover {
 }
 
 .text-style-actions.margin {
-    margin-block-end: 30px;
+    margin-block-end: 50px;
+    height: 32px;
 }
 
 .text-style-actions .font-picker-action {
@@ -439,13 +451,16 @@ button:hover {
 
 .text-style-actions .font-picker-action select {
     width: 100%;
-    
+    height: 100%;
 }
 
 .text-align-actions {
     display: flex;
     justify-content: center;
     margin-block-end: 30px;
+    background-color: var(--clr2);
+    border-radius: 2em;
+    margin-block-end: 50px;
 }
 
 .text-align-actions > * {
@@ -456,9 +471,22 @@ button:hover {
     display: flex;
 }
 
+.delete {
+    flex-grow: 1;
+}
+
+
+
+
 .save-share-update-actions {
     display: flex;
     justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin-block-end: 30px;
+    background-color: var(--clr2);
+    border-radius: 2em;
+    margin-block-end: 50px;
 }
 
 .save-share-update-actions > *:first-child {
@@ -467,6 +495,7 @@ button:hover {
 
 .save-share-update-actions .add-file-action {
     width: 100%;
+    height: 32px;
 }
 
 .save-share-update-actions .add-file-action::file-selector-button {
@@ -474,6 +503,11 @@ button:hover {
     color: var(--clr-secondary);
     background-color: transparent;
     font-size: 1.2rem;
+}
+
+.download-modal-actions button {
+    background-color: var(--clr2);
+    border-radius: 2em;
 }
 
 .open-download-modal-action {

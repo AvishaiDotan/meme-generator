@@ -4,7 +4,7 @@ let gCurrLang = 'en'
 const gTrans = {
     'meme_generator': {
         en: 'Meme Generator',
-        he: 'בורא ממים - בטא'
+        he: 'יוצר ממים - בטא'
     },
     'saved': {
         en: 'Saved',
@@ -36,7 +36,7 @@ const gTrans = {
     },
     'contact_me': {
         en: 'Contact Me',
-        he: 'צור עימי קשר כפרה עליך'
+        he: 'צור עימי קשר'
     },
     'avishai_dotan': {
         en: 'Avishai Dotan',
